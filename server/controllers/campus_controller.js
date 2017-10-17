@@ -2,7 +2,8 @@ const Campus = require('../database/models/campus');
 const Student = require('../database/models/student');
 const bodyParser = require('body-parser');
 
-]exports.fetchAllCampuses = function(req, res, next) {
+// Fetch all campuses
+exports.fetchAllCampuses = function(req, res, next) {
 	Campus.findAll()
 		.then(function(campuses) {
 			res.json(campuses);
