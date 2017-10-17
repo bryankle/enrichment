@@ -12,8 +12,8 @@ class App extends Component {
       })
 
 
-    // Edit a student
-    axios.put('/api/student/10', { name: 'TEST UPDATE 2' })
+    // Edit a student - WORKING
+    // axios.put('/api/student/10', { name: 'TEST UPDATE 2' })
 
     // Create a student - WORKING
     // axios.post('/api/student', { name: 'TEST', email: 'test@test.com' })
@@ -33,7 +33,7 @@ class App extends Component {
     //   picture: 'newpicture' })
 
     // UPDATE name of single campus - WORKING
-    // axios.put('/api/campus/1', { name: 'hello world'})
+    axios.put('/api/campus/15', { name: 'hello world working'})
 
     // GET single campus - working
     // axios.get('/api/campus/1')
