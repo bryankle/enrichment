@@ -20,3 +20,45 @@ exports.fetchCampus = function(req, res, next) {
 	})
 }
 
+exports.editCampus = function(req, res, next) {
+	const id = req.params.id;
+	console.log('req.body');
+	console.log(req.body);
+	Campus.update(
+		{ name: 'TEST'},
+		{ where: {
+			id: id
+		}})
+	.then(function(campus) {
+		console.log('Update successful')
+		res.send(campus)
+	})
+}
+
+
+// router.put('/articles/:id', function(req, res) {
+
+// 	const id = req.params.id;
+// 	const { title } = req.body;
+
+// 	if (title === '') return res.status(500).end();
+
+// 	return Article.update(
+// 		{
+// 			title
+// 		},
+// 		{where: { id: id }}
+// 	).then(function() {
+// 		return Article.findOne({
+// 			where: {
+// 				id: id
+// 			}
+// 		})
+// 			.then(function(val) {
+// 				res.send({
+// 					message: 'Updated successfully',
+// 					article: val
+// 				});
+// 			}) 
+// 	})
+// })

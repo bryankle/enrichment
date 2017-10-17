@@ -9,5 +9,7 @@ module.exports = function(app) {
 
 	app.get('/api/campus', CampusController.fetchCampuses);
 	app.get('/api/campus/:id', CampusController.fetchCampus)
+	app.put('/api/campus/:id', CampusController.editCampus);
+
 	app.get('/api/student', StudentController.fetchStudents);
 }
