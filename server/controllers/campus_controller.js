@@ -65,7 +65,7 @@ exports.removeStudent = function(req, res, next) {
 	console.log('studentId', studentId)
 	
 	Student.update(
-		{ campusId: 10 },
+		{ campusId: null },
 		{ where: {
 			id: studentId
 		}}
