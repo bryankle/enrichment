@@ -10,7 +10,13 @@ class App extends Component {
       .then((campus) => {
         console.log(campus);
       })
-    axios.put('/api/campus/1', { name: 'hello world'})
+    axios.post('/api/campus', { 
+      name: 'newcampus', 
+      picture: 'newpicture' })
+
+    // UPDATE name of single campus
+    // axios.put('/api/campus/1', { name: 'hello world'})
+
     // GET single campus - working
     // axios.get('/api/campus/1')
     //   .then(campus => console.log(campus))

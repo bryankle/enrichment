@@ -1,7 +1,8 @@
 const Campus = require('../database/models/campus');
+const bodyParser = require('body-parser');
 
 // Fetch all campuses
-exports.fetchCampuses = function(req, res, next) {
+exports.fetchAllCampuses = function(req, res, next) {
 	Campus.findAll()
 		.then(function(campuses) {
 			res.json(campuses);
@@ -20,12 +21,24 @@ exports.fetchCampus = function(req, res, next) {
 	})
 }
 
+exports.createCampus = function(req, res, next) {
+	const { name, picture } = req.body;
+	Campus.create({
+		name,
+		picture
+	})
+}
+
 exports.editCampus = function(req, res, next) {
 	const id = req.params.id;
 	console.log('req.body');
 	console.log(req.body);
+	const { name, picture } = req.body;
+	console.log('name', name);
+	console.log('picture', picture);
+	// req.body must contain 'name' or 'picture'
 	Campus.update(
-		{ name: 'TEST'},
+		{ name: name },
 		{ where: {
 			id: id
 		}})
@@ -33,6 +46,7 @@ exports.editCampus = function(req, res, next) {
 		console.log('Update successful')
 		res.send(campus)
 	})
+	.catch((err) => res.send(err))
 }
 
 
