@@ -2,15 +2,13 @@ const Campus = require('../database/models/campus');
 const Student = require('../database/models/student');
 const bodyParser = require('body-parser');
 
-// Fetch all campuses
-exports.fetchAllCampuses = function(req, res, next) {
+]exports.fetchAllCampuses = function(req, res, next) {
 	Campus.findAll()
 		.then(function(campuses) {
 			res.json(campuses);
 		})
 }
 
-// Fetch single campus
 exports.fetchCampus = function(req, res, next) {
 	Campus.findOne({
 		where: {
@@ -60,13 +58,6 @@ exports.deleteCampus = function(req, res, next) {
 	.then(campus => campus.destroy());
 }
 
-// Add student from campus
-// Drop down contains all students (no school) OR input
-// Submit name of student
-// PUT request on student name and edit campusId to campusId of current page
-
-
-// Removes student by ID
 exports.removeStudent = function(req, res, next) {
 	const studentId = req.params.studentId;
 	console.log('studentId', studentId)
@@ -83,6 +74,8 @@ exports.removeStudent = function(req, res, next) {
 	.catch(err => res.send('Student not found'))
 }
 
+
+// REVISIT - consider using editStudent function from StudentController
 // exports.addStudent = function(req, res, next) {
 // 	const studentId = req.params.studentId;
 // // 	const campusId = req.params.campusId;
@@ -94,7 +87,3 @@ exports.removeStudent = function(req, res, next) {
 // 	})
 // }
 
-// Deleting a student
-// Click remove button next to students name
-// Student remove button associated with student Id
-// PUT request to edit students campusId to ''
