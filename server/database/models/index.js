@@ -1,5 +1,5 @@
 const db = require('./db');
-const Student = require('./students');
+const Student = require('./student');
 const Campus = require('./campus');
 
 Campus.hasMany(Student);

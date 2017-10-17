@@ -1,5 +1,6 @@
 const express = require('express');
 const CampusController = require('../controllers/campus_controller');
+const StudentController = require('../controllers/student_controller');
 
 module.exports = function(app) {
 	app.get('/', function(req, res, next) {
@@ -7,4 +8,8 @@ module.exports = function(app) {
 	})
 
 	app.get('/api/campus', CampusController.fetchCampus);
+	app.get('/api/student', function(req, res, next) {
+		console.log('helo')
+		res.send('hello')
+	});
 }
