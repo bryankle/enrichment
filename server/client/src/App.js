@@ -10,10 +10,12 @@ class App extends Component {
       .then((campus) => {
         console.log(campus);
       })
-    axios.get('/api/student')
-      .then((students) => {
-        console.log(students)
-      })
+    axios.get('/api/campus/1')
+      .then(campus => console.log(campus))
+    // axios.get('/api/student')
+    //   .then((students) => {
+    //     console.log(students)
+    //   })
   }
 
   render() {

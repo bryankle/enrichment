@@ -7,6 +7,7 @@ module.exports = function(app) {
 		res.send('Hello world')
 	})
 
-	app.get('/api/campus', CampusController.fetchCampus);
+	app.get('/api/campus', CampusController.fetchCampuses);
+	app.get('/api/campus/:id', CampusController.fetchCampus)
 	app.get('/api/student', StudentController.fetchStudents);
 }
