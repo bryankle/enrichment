@@ -1,5 +1,6 @@
 const Campus = require('../database/models/campus');
 
+// Fetch all campuses
 exports.fetchCampuses = function(req, res, next) {
 	Campus.findAll()
 		.then(function(campuses) {
@@ -7,6 +8,7 @@ exports.fetchCampuses = function(req, res, next) {
 		})
 }
 
+// Fetch single campus
 exports.fetchCampus = function(req, res, next) {
 	Campus.findOne({
 		where: {
@@ -18,13 +20,3 @@ exports.fetchCampus = function(req, res, next) {
 	})
 }
 
-// router.get('/articles/:id', function(req, res) {
-// 	const id = req.params.id;
-// 	return Article.findOne({
-// 		where: {
-// 			id: req.params.id
-// 		}
-// 	}).then(function(article) {
-// 		article !== null ? res.send(article) :  res.status(404).end();
-// 	})
-// });
