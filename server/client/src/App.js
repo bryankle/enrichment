@@ -11,7 +11,12 @@ class App extends Component {
         console.log(campus);
       })
 
-    axios.delete('/api/campus/16')
+
+    // Create a student
+    axios.post('/api/student', { name: 'TEST', email: 'test@test.com' })
+
+    // Delete a campus - WORKING
+    // axios.delete('/api/campus/16')
 
     // Delete a student - WORKING
     // axios.delete('/api/student/9');
