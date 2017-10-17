@@ -12,6 +12,7 @@ module.exports = function(app) {
 	app.put('/api/campus/remove/:studentId', CampusController.removeStudent)
 	app.put('/api/campus/:id/', CampusController.editCampus);
 	app.post('/api/campus', CampusController.createCampus);
+	app.delete('/api/campus/:id', CampusController.deleteCampus);
 
 	// Student Routes
 	app.get('/api/student', StudentController.fetchStudents);

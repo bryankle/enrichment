@@ -50,6 +50,16 @@ exports.editCampus = function(req, res, next) {
 	.catch((err) => res.send(err))
 }
 
+exports.deleteCampus = function(req, res, next) {
+	const id = req.params.id;
+	Campus.findOne({
+		where: {
+			id
+		}
+	})
+	.then(campus => campus.destroy());
+}
+
 // Add student from campus
 // Drop down contains all students (no school) OR input
 // Submit name of student

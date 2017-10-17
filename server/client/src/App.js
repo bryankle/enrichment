@@ -11,18 +11,20 @@ class App extends Component {
         console.log(campus);
       })
 
-    // Delete a student
-    axios.delete('/api/student/9');
+    axios.delete('/api/campus/16')
 
-    // Remove student from campus with ID
+    // Delete a student - WORKING
+    // axios.delete('/api/student/9');
+
+    // Remove student from campus with ID - WORKING
     // axios.put('/api/campus/remove/1')
 
-    // POST create new campus
+    // POST create new campus - TEST again
     // axios.post('/api/campus', { 
     //   name: 'newcampus', 
     //   picture: 'newpicture' })
 
-    // UPDATE name of single campus
+    // UPDATE name of single campus - WORKING
     // axios.put('/api/campus/1', { name: 'hello world'})
 
     // GET single campus - working
