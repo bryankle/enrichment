@@ -8,8 +8,5 @@ module.exports = function(app) {
 	})
 
 	app.get('/api/campus', CampusController.fetchCampus);
-	app.get('/api/student', function(req, res, next) {
-		console.log('helo')
-		res.send('hello')
-	});
+	app.get('/api/student', StudentController.fetchStudents);
 }
