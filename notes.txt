@@ -24,6 +24,7 @@ Actions: as a user I...
 + can edit a student's info, including the campus that student is assigned to
 + can delete a student
 
+
 Personal Notes
 
 - consider revising routes for editing students from campus and vice versa
