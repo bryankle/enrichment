@@ -1,11 +1,11 @@
 {
-  "name": "letsdoit",
+  "name": "enrichment",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd server && nodemon index",
+    "server": "cd server && node app",
     "client": "cd server/client && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +24,7 @@
     "sequelize": "^4.13.8"
   },
   "devDependencies": {
-    "concurrently": "^3.5.0"
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.12.1"
   }
 }
