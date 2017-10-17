@@ -10,8 +10,12 @@ class App extends Component {
       .then((campus) => {
         console.log(campus);
       })
-    // Remove student from campus
-    axios.put('/api/campus/remove/1', { name: 'test' })
+
+    // Delete a student
+    axios.delete('/api/student/9');
+
+    // Remove student from campus with ID
+    // axios.put('/api/campus/remove/1')
 
     // POST create new campus
     // axios.post('/api/campus', { 

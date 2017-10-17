@@ -56,12 +56,9 @@ exports.editCampus = function(req, res, next) {
 // PUT request on student name and edit campusId to campusId of current page
 
 
-
+// Removes student by ID
 exports.removeStudent = function(req, res, next) {
-	const name = req.body.name;
 	const studentId = req.params.studentId;
-	console.log("REMOVING STUDENT")
-	console.log('name', name);
 	console.log('studentId', studentId)
 	
 	Student.update(
@@ -76,35 +73,18 @@ exports.removeStudent = function(req, res, next) {
 	.catch(err => res.send('Student not found'))
 }
 
+// exports.addStudent = function(req, res, next) {
+// 	const studentId = req.params.studentId;
+// // 	const campusId = req.params.campusId;
+// 	student.update({
+// 		{ campusId: campusId },
+// 		{ where: {
+// 			id: studentId
+// 		}}
+// 	})
+// }
+
 // Deleting a student
 // Click remove button next to students name
 // Student remove button associated with student Id
 // PUT request to edit students campusId to ''
-
-
-// router.put('/articles/:id', function(req, res) {
-
-// 	const id = req.params.id;
-// 	const { title } = req.body;
-
-// 	if (title === '') return res.status(500).end();
-
-// 	return Article.update(
-// 		{
-// 			title
-// 		},
-// 		{where: { id: id }}
-// 	).then(function() {
-// 		return Article.findOne({
-// 			where: {
-// 				id: id
-// 			}
-// 		})
-// 			.then(function(val) {
-// 				res.send({
-// 					message: 'Updated successfully',
-// 					article: val
-// 				});
-// 			}) 
-// 	})
-// })
