@@ -39,7 +39,7 @@ exports.editCampus = function(req, res, next) {
 	console.log('picture', picture);
 	// req.body must contain 'name' or 'picture'
 	Campus.update(
-		{ name: name },
+		{ name: name }, // Revisit - find way to edit picture
 		{ where: {
 			id: id
 		}})

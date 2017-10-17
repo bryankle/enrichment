@@ -12,8 +12,11 @@ class App extends Component {
       })
 
 
-    // Create a student
-    axios.post('/api/student', { name: 'TEST', email: 'test@test.com' })
+    // Edit a student
+    axios.put('/api/student/10', { name: 'TEST UPDATE 2' })
+
+    // Create a student - WORKING
+    // axios.post('/api/student', { name: 'TEST', email: 'test@test.com' })
 
     // Delete a campus - WORKING
     // axios.delete('/api/campus/16')

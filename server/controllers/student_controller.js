@@ -26,3 +26,36 @@ exports.deleteStudent = function(req, res, next) {
 	})
 	.then(student => student.destroy());
 }
+
+// name, email, campusId
+exports.editStudent = function(req, res, next) {
+	const id = req.params.id;
+	const { name, email, campusId } = req.body;
+	console.log('EDIT STUDENT')
+	Student.update(
+		req.body, 
+		{ where: {
+			id: id
+		}}
+	)
+}
+
+// exports.editCampus = function(req, res, next) {
+// 	const id = req.params.id;
+// 	console.log('req.body');
+// 	console.log(req.body);
+// 	const { name, picture } = req.body;
+// 	console.log('name', name);
+// 	console.log('picture', picture);
+// 	// req.body must contain 'name' or 'picture'
+// 	Campus.update(
+// 		{ name: name }, // Revisit - find way to edit picture
+// 		{ where: {
+// 			id: id
+// 		}})
+// 	.then(function(campus) {
+// 		console.log('Update successful')
+// 		res.send(campus)
+// 	})
+// 	.catch((err) => res.send(err))
+// // }
