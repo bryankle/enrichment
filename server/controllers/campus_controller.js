@@ -1,4 +1,5 @@
 const Campus = require('../database/models/campus');
+const Student = require('../database/models/student');
 const bodyParser = require('body-parser');
 
 // Fetch all campuses
@@ -48,6 +49,37 @@ exports.editCampus = function(req, res, next) {
 	})
 	.catch((err) => res.send(err))
 }
+
+// Add student from campus
+// Drop down contains all students (no school) OR input
+// Submit name of student
+// PUT request on student name and edit campusId to campusId of current page
+
+
+
+exports.removeStudent = function(req, res, next) {
+	const name = req.body.name;
+	const studentId = req.params.studentId;
+	console.log("REMOVING STUDENT")
+	console.log('name', name);
+	console.log('studentId', studentId)
+	
+	Student.update(
+		{ campusId: 10 },
+		{ where: {
+			id: studentId
+		}}
+	)
+	.then(function(student) {
+		console.log(student)
+	})
+	.catch(err => res.send('Student not found'))
+}
+
+// Deleting a student
+// Click remove button next to students name
+// Student remove button associated with student Id
+// PUT request to edit students campusId to ''
 
 
 // router.put('/articles/:id', function(req, res) {
