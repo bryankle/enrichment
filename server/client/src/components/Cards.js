@@ -20,10 +20,10 @@ class Cards extends Component {
 	render() {
 		console.log("CARDS")
 		console.log(this.props)
-		const { id } = this.props;
+		const { id, type } = this.props;
 		return(
 			<Card>
-			<Link to={`/campus/${id}`}>
+			<Link to={`/${type}/${id}`}>
 		      <Image src="http://lorempixel.com/400/200" />
 	      	</Link>
 			    <Card.Content>

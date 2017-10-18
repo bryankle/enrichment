@@ -38,6 +38,7 @@ class Campus extends Component {
         campuses.map((campus) => {
           console.log('campus id', campus.id)
           return <Cards
+            type={'campus'}
             name={campus.name}
             image={'http://lorempixel.com/400/200'}
             description={'Description goes here'}

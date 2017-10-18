@@ -24,7 +24,6 @@ class App extends Component {
              <Switch>
               <Route index path="/home" component={Home} />
               <Route exact path="/campus" component={Campus} />
-              <Route path="/campus/:id" component={CampusDetail} /> 
               <Route path="/campus/:id" render={(props) => <CampusDetail {...props}/>} /> 
               <Route exact path="/students" component={Students} />
               <Route path="/students/:id" component={Students} />
