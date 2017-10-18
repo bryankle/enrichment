@@ -4,4 +4,4 @@ import {
 	DELETE_STUDENT,
 	CREATE_STUDENT,
 	EDIT_STUDENT
-} from './types';
+} from '../actions/types';

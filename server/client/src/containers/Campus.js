@@ -11,10 +11,11 @@ class Campus extends Component {
   }
 
   componentDidMount() {
-    
+    this.props.fetchAllCampus();
   }
 
 	render() {
+    console.log(this.props);
 		return (
 			<div>
 
@@ -90,4 +91,10 @@ class Campus extends Component {
 	}
 }
 
-export default connect(null, actions)(Campus);
+function mapStateToProps(state) {
+  return {
+    campus: state.campus
+  }
+}
+
+export default connect(mapStateToProps, actions)(Campus);

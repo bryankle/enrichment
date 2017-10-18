@@ -5,11 +5,13 @@ import {
 	EDIT_CAMPUS,
 	CREATE_CAMPUS,
 	DELETE_CAMPUS
-} from './types';
+} from '../actions/types';
 
 export default (state = {}, action) => {
 	switch(action.type) {
 		case FETCH_ALL_CAMPUS:
 			return action.payload
+		default:
+			return state
 	}
 }
