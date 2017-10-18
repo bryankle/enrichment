@@ -87,6 +87,20 @@ export const fetchAllStudents = () => {
 	}
 }
 
+export const deleteStudent = (id) => {
+	return dispatch => {
+		axios.get(`${ROOT_URL}/api/student/${id}`)
+			.then(res => {	// then does not execute body; axios.delete not resolving promise?
+				console.log("Deleting a student..."); 
+				console.log(id)
+				dispatch({
+					type: DELETE_STUDENT,
+					payload: id
+				})
+			})
+	}
+}
+
 
 	// // Campus Routes
 	// app.get('/api/campus', CampusController.fetchAllCampuses);
