@@ -1,11 +1,11 @@
 import axios from 'axios';
 import {
-	FETCH_ALL_CAMPUS,
-	FETCH_CAMPUS,
-	REMOVE_STUDENT,
-	EDIT_CAMPUS,
-	CREATE_CAMPUS,
-	DELETE_CAMPUS,
+	FETCH_ALL_CAMPUS, // WORKING
+	FETCH_CAMPUS, // WORKING
+	REMOVE_STUDENT, 
+	EDIT_CAMPUS, 
+	CREATE_CAMPUS, 
+	DELETE_CAMPUS, 
 	FETCH_ALL_STUDENTS,
 	FETCH_STUDENT,
 	DELETE_STUDENT,
@@ -41,6 +41,35 @@ export const fetchCampus = (id) => {
 			})
 	}
 }
+
+export const deleteCampus = (id) => {
+	return dispatch => {
+		axios.delete(`${ROOT_URL}/api/campus/${id}`)
+			.then(res => {
+				console.log("DELETING CAMPUS");
+				dispatch({
+					type: DELETE_CAMPUS,
+					payload: res.data
+				})
+			})
+	}
+}
+
+
+
+// export const removeStudent = (id) => {
+// 	return dispatch => {
+// 		axios.put(`${ROOT_URL}/api/remove/${id}`)
+// 			.then(res => {
+// 				dispatch({
+// 					type: REMOVE_STUDENT,
+// 					payload: res.data
+// 				})
+// 			})
+// 	}
+// }
+
+
 
 // Student actions
 

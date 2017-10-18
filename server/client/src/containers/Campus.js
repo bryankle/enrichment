@@ -14,7 +14,7 @@ class Campus extends Component {
 
   componentDidMount() {
     this.props.fetchAllCampus();
-    this.props.fetchCampus(1)
+    // this.props.fetchCampus(1)
   }
 
 	render() {
@@ -23,16 +23,18 @@ class Campus extends Component {
     console.log('campuses', campuses)
     // console.log("campus:", campuses.length)
 
-
 		return (
 			<div>
         <Card.Group itemsPerRow={4}>
         {this.props.campus.allCampuses ? 
-        campuses.map(function(campus) {
+        campuses.map((campus) => {
+          console.log('campus render', campus)
           return <Cards
             name={campus.name}
             image={'http://lorempixel.com/400/200'}
             description={'Description goes here'}
+            id={campus.id}
+            deleteCampus={this.props.deleteCampus}
           />
         })
         :
