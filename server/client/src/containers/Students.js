@@ -6,6 +6,10 @@ import Cards from '../components/Cards';
 
 class Student extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.props.fetchAllStudents();
   }
@@ -19,12 +23,14 @@ class Student extends Component {
 			 <div>
         <Card.Group itemsPerRow={4}>
           {this.props.student.allStudents ? 
-          students.map(function(student) {
+          students.map((student) => {
             console.log(student);
             return <Cards
               name={student.name}
               image={'http://lorempixel.com/400/200'}
-              description={student.campus ? student.campus.name : ''}
+              description={student.campus ? student.campus.name : 'Unaffiliated'}
+              id={student.id}
+              delete={this.props.deleteStudent}
             />
           })
           :

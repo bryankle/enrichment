@@ -42,7 +42,7 @@ class Cards extends Component {
 		          <Modals />
 		          <Button 
 		          	basic color='red'
-		          	onClick={() => this.props.delete(id)}
+		          	onClick={() => this.props.delete ? this.props.delete(id) : console.log('no function')}
 		          	>Delete</Button>
 		        </div>
 		      </Card.Content>

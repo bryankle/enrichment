@@ -89,7 +89,7 @@ export const fetchAllStudents = () => {
 
 export const deleteStudent = (id) => {
 	return dispatch => {
-		axios.get(`${ROOT_URL}/api/student/${id}`)
+		axios.delete(`${ROOT_URL}/api/student/${id}`)
 			.then(res => {	// then does not execute body; axios.delete not resolving promise?
 				console.log("Deleting a student..."); 
 				console.log(id)

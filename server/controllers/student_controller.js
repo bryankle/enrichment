@@ -33,12 +33,19 @@ exports.createStudent = function(req, res, next) {
 
 exports.deleteStudent = function(req, res, next) {
 	const id = req.params.id;
-	Student.findOne({
-		where: {
-			id
-		}
+	return Student.destroy({
+	    where: {
+	        id: id
+	    }
 	})
-	.then(student => student.destroy());
+	.then(function(rowDeleted){ // rowDeleted will return number of rows deleted
+	  if(rowDeleted === 1){
+	     console.log('Deleted successfully');
+	     res.send(200)
+	   }
+	}, function(err){
+	    console.log(err); 
+	});
 }
 
 exports.editStudent = function(req, res, next) {
