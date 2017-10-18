@@ -17,9 +17,12 @@ class Cards extends Component {
 	}
 
 	render() {
+		console.log("CARDS")
+		console.log(this.props)
+		const { id } = this.props;
 		return(
 			<Card>
-			
+
 		      <Image src="http://lorempixel.com/400/200" />
 			    <Card.Content>
 			      <Card.Header>
@@ -37,7 +40,10 @@ class Cards extends Component {
 		      <Card.Content extra>
 		        <div className='ui two buttons'>
 		          <Modals />
-		          <Button basic color='red'>Delete</Button>
+		          <Button 
+		          	basic color='red'
+		          	onClick={() => this.props.deleteCampus(id)}
+		          	>Delete</Button>
 		        </div>
 		      </Card.Content>
 		    </Card>
