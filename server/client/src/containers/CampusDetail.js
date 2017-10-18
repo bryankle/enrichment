@@ -14,14 +14,15 @@ class CampusDetail extends Component {
 
   componentDidMount() {
     // Fetch single campus here
-    this.props.fetchCampus(1);
+    const id = this.props.match.params.id
+    this.props.fetchCampus(id);
   }
 
 	render() {
     console.log(this.props)
 		return (
 			<div>
-        CampusDetail
+        {this.props.campus.singleCampus ? this.props.campus.singleCampus.name : ''}
 			</div>
 		)
 	}
