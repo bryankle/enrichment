@@ -77,7 +77,7 @@ export const deleteCampus = (id) => {
 
 export const fetchAllStudents = () => {
 	return dispatch => {
-		axios.delete(`${ROOT_URL}/api/student`)
+		axios.get(`${ROOT_URL}/api/student`)
 			.then(res => {
 				dispatch({
 					type: FETCH_ALL_STUDENTS,

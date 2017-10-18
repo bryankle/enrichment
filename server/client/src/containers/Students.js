@@ -15,20 +15,21 @@ class Student extends Component {
     console.log(this.props);
 
     const students = this.props.student;
-    console.log(students);
+    console.log(this.props.student.length);
 		return (
 			 <div>
         <Card.Group itemsPerRow={4}>
-        {students.length > 0 ? 
-        students.map(function(student) {
-          return <Cards
-            name={student.name}
-            image={'http://lorempixel.com/400/200'}
-            description={student.campus.name}
-          />
-        })
-        :
-         ''}
+          {this.props.student.length > 0 ? 
+          students.map(function(student) {
+            console.log(student);
+            return <Cards
+              name={student.name}
+              image={'http://lorempixel.com/400/200'}
+              description={student.campus.name}
+            />
+          })
+          :
+           ''}
         </Card.Group> 
       </div>
 		)

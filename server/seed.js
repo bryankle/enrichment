@@ -50,35 +50,43 @@ var data = {
   student: [
   {
     "name": "Rebecca Lyons",
-    "email": "rebeccalyons@plexia.com"
+    "email": "rebeccalyons@plexia.com",
+    "campusId" : 1
   },
   {
     "name": "Ward David",
-    "email": "warddavid@plexia.com"
+    "email": "warddavid@plexia.com",
+    "campusId" : 2
   },
   {
     "name": "Cheryl Cochran",
-    "email": "cherylcochran@plexia.com"
+    "email": "cherylcochran@plexia.com",
+    "campusId" : 3
   },
   {
     "name": "Marion Tran",
-    "email": "mariontran@plexia.com"
+    "email": "mariontran@plexia.com",
+    "campusId" : 1
   },
   {
     "name": "Mia Lane",
-    "email": "mialane@plexia.com"
+    "email": "mialane@plexia.com",
+    "campusId" : 2
   },
   {
     "name": "Garrison Lowery",
-    "email": "garrisonlowery@plexia.com"
+    "email": "garrisonlowery@plexia.com",
+    "campusId" : 3
   },
   {
     "name": "Lucy Burgess",
-    "email": "lucyburgess@plexia.com"
+    "email": "lucyburgess@plexia.com",
+    "campusId" : 4
   },
   {
     "name": "Eddie Hernandez",
-    "email": "eddiehernandez@plexia.com"
+    "email": "eddiehernandez@plexia.com",
+    "campusId" : 5
   }
 ]
 };
