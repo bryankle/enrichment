@@ -42,7 +42,7 @@ class Campus extends Component {
             image={'http://lorempixel.com/400/200'}
             description={'Description goes here'}
             id={campus.id}
-            deleteCampus={this.props.deleteCampus}
+            delete={this.props.deleteCampus}
           />
         })
         :
