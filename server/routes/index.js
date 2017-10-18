@@ -15,7 +15,7 @@ module.exports = function(app) {
 	app.delete('/api/campus/:id', CampusController.deleteCampus);
 
 	// Student Routes
-	app.get('/api/student', StudentController.fetchStudents);
+	app.get('/api/student', StudentController.fetchAllStudents);
 	app.get('/api/student/:id', StudentController.fetchStudent)
 	app.delete('/api/student/:id', StudentController.deleteStudent);
 	app.post('/api/student', StudentController.createStudent);
