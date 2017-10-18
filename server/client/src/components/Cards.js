@@ -16,11 +16,11 @@ class Cards extends Component {
 			      <Card.Meta>
 			        <span className='date'>
 			          Description
-			         
+
 			        </span>
 			      </Card.Meta>
 			      <Card.Description>
-			        Description
+			        {this.props.description}
 			      </Card.Description>
     			</Card.Content>
 		      <Card.Content extra>

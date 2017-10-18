@@ -23,9 +23,8 @@ class Student extends Component {
         students.map(function(student) {
           return <Cards
             name={student.name}
-            campus={student.cam}
             image={'http://lorempixel.com/400/200'}
-            description={'Description goes here'}
+            description={student.campus.name}
           />
         })
         :
