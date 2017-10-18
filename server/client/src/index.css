@@ -2,4 +2,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain;
 }
