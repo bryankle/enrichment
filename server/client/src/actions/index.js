@@ -15,6 +15,7 @@ import {
 
 const ROOT_URL = 'http://localhost:3001';
 
+// Campus actions
 export const fetchAllCampus = () => {
 	return dispatch => {
 		axios.get(`${ROOT_URL}/api/campus`)
@@ -26,6 +27,21 @@ export const fetchAllCampus = () => {
 			})
 	}
 }
+
+// Student actions
+
+export const fetchAllStudents = () => {
+	return dispatch => {
+		axios.get(`${ROOT_URL}/api/student`)
+			.then(res => {
+				dispatch({
+					type: FETCH_ALL_STUDENTS,
+					payload: res.data
+				})
+			})
+	}
+}
+
 
 	// // Campus Routes
 	// app.get('/api/campus', CampusController.fetchAllCampuses);

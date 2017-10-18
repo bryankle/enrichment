@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import Cards from '../components/Cards';
 import { Menu, Card, Image, Icon, Grid, Button } from 'semantic-ui-react'
 
 
@@ -15,77 +16,26 @@ class Campus extends Component {
   }
 
 	render() {
-    console.log(this.props);
+
+    const campuses = this.props.campus;
+    console.log("campus:", campuses.length)
+
+
 		return (
 			<div>
-
-				 <Card.Group itemsPerRow={4}>
-     <Card>
-      <Card.Content>
-        <Image floated='right' size='mini' />
-        <Card.Header>
-          Steve Sanders
-        </Card.Header>
-        <Card.Meta>
-          Friends of Elliot
-        </Card.Meta>
-        <Card.Description>
-          Steve wants to add you to the group <strong>best friends</strong>
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <div className='ui two buttons'>
-          <Button basic color='green'>Approve</Button>
-          <Button basic color='red'>Decline</Button>
-        </div>
-      </Card.Content>
-    </Card>
-     <Card>
-      <Card.Content>
-        <Image floated='right' size='mini' />
-        <Card.Header>
-          Steve Sanders
-        </Card.Header>
-        <Card.Meta>
-          Friends of Elliot
-        </Card.Meta>
-        <Card.Description>
-          Steve wants to add you to the group <strong>best friends</strong>
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <div className='ui two buttons'>
-          <Button basic color='green'>Approve</Button>
-          <Button basic color='red'>Decline</Button>
-        </div>
-      </Card.Content>
-    </Card>
-     <Card>
-      <Card.Content>
-        <Image floated='right' size='mini' />
-        <Card.Header>
-          Steve Sanders
-        </Card.Header>
-        <Card.Meta>
-          Friends of Elliot
-        </Card.Meta>
-        <Card.Description>
-          Steve wants to add you to the group <strong>best friends</strong>
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <div className='ui two buttons'>
-          <Button basic color='green'>Approve</Button>
-          <Button basic color='red'>Decline</Button>
-        </div>
-      </Card.Content>
-    </Card>
-
-    
-  </Card.Group>
-
-				
-
+        <Card.Group itemsPerRow={4}>
+        {campuses.length > 0 ? 
+        campuses.map(function(campus) {
+          console.log(campus)
+          return <Cards
+            name={campus.name}
+            image={'http://lorempixel.com/400/200'}
+            description={'Description goes here'}
+          />
+        })
+        :
+         ''}
+        </Card.Group> 
 			</div>
 		)
 	}

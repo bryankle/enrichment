@@ -3,8 +3,8 @@ import campusReducer from './campus_reducer';
 import studentReducer from './student_reducer';
 
 const rootReducer = combineReducers({
-	campus: campusReducer
-	// student: studentReducer
+	campus: campusReducer,
+	student: studentReducer
 });
 
 export default rootReducer;
