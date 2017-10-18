@@ -10,6 +10,7 @@ import Navbar from './Navbar';
 import Home from './Home';
 import Students from './Students';
 import Campus from './Campus';
+import SingleCampus from './SingleCampus';
 
 class App extends Component {
 
@@ -26,7 +27,8 @@ class App extends Component {
            <Navbar/>
              <Switch>
               <Route index path="/home" component={Home} />
-              <Route path="/campus" component={Campus} />
+              <Route exact path="/campus" component={Campus} />
+              <Route path="/campus/:id" component={Home} />
               <Route path="/students" component={Students} />
              </Switch>
           </Container>

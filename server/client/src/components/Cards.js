@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Menu, Card, Image, Icon, Grid, Button, Modal } from 'semantic-ui-react'
 import Modals from './Modals';
+import { Link } from 'react-router-dom';
 
 // Refactor to functon later
 
@@ -22,8 +23,9 @@ class Cards extends Component {
 		const { id } = this.props;
 		return(
 			<Card>
-
+			<Link to={`/campus/${id}`}>
 		      <Image src="http://lorempixel.com/400/200" />
+	      	</Link>
 			    <Card.Content>
 			      <Card.Header>
 			        {this.props.name}

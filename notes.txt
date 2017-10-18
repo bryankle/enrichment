@@ -38,8 +38,8 @@ Todo
 + Add EDIT modal for campus
 + Add EDIT modal for students
 - Create all action creators corresponding with routes
-- Add DELETE functionality for delete button on card for campus
-- Add DELETE functionality for delete button on card for student
++ Add DELETE functionality for delete button on card for campus
++ Add DELETE functionality for delete button on card for student
 - Add description modal for for campus
 - Add description modal for students
 - Display all students belonging to specfic university in modal
