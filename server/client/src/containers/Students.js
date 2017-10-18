@@ -14,74 +14,24 @@ class Student extends Component {
 
     console.log(this.props);
 
+    const students = this.props.student;
+    console.log(students);
 		return (
-			 <Card.Group itemsPerRow={4}>
-    <Card>
-      <Card.Content>
-        <Image floated='right' size='mini' />
-        <Card.Header>
-          Steve Sanders
-        </Card.Header>
-        <Card.Meta>
-          Friends of Elliot
-        </Card.Meta>
-        <Card.Description>
-          Steve wants to add you to the group <strong>best friends</strong>
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <div className='ui two buttons'>
-          <Button basic color='green'>Approve</Button>
-          <Button basic color='red'>Decline</Button>
-        </div>
-      </Card.Content>
-    </Card>
-    
-     <Card>
-      <Card.Content>
-        <Image floated='right' size='mini' />
-        <Card.Header>
-          Steve Sanders
-        </Card.Header>
-        <Card.Meta>
-          Friends of Elliot
-        </Card.Meta>
-        <Card.Description>
-          Steve wants to add you to the group <strong>best friends</strong>
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <div className='ui two buttons'>
-          <Button basic color='green'>Approve</Button>
-          <Button basic color='red'>Decline</Button>
-        </div>
-      </Card.Content>
-    </Card>
-
-     <Card>
-      <Card.Content>
-        <Image floated='right' size='mini' />
-        <Card.Header>
-          Steve Sanders
-        </Card.Header>
-        <Card.Meta>
-          Friends of Elliot
-        </Card.Meta>
-        <Card.Description>
-          Steve wants to add you to the group <strong>best friends</strong>
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <div className='ui two buttons'>
-          <Button basic color='green'>Approve</Button>
-          <Button basic color='red'>Decline</Button>
-        </div>
-      </Card.Content>
-    </Card>
-    
-
-    
-  </Card.Group>
+			 <div>
+        <Card.Group itemsPerRow={4}>
+        {students.length > 0 ? 
+        students.map(function(student) {
+          return <Cards
+            name={student.name}
+            campus={student.cam}
+            image={'http://lorempixel.com/400/200'}
+            description={'Description goes here'}
+          />
+        })
+        :
+         ''}
+        </Card.Group> 
+      </div>
 		)
 	}
 }

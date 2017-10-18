@@ -1,8 +1,8 @@
 Navigation: as a user I...
 
-- will land on Home by default
-- can navigate to Campuses from Home
-- can navigate to Students from Home
++ will land on Home by default
++ can navigate to Campuses from Home
++ can navigate to Students from Home
 - can navigate to view a Single Campus from Campuses
 - can navigate to view a Single Student from Students
 - can navigate to view a Single Student from Single Campus (for any student at that campus)
@@ -28,9 +28,10 @@ Actions: as a user I...
 Personal Notes
 
 - consider revising routes for editing students from campus and vice versa
+- How to correlate parent ID with new value?
 
 Todo
-- Render all cards for campuses from DB
++ Render all cards for campuses from DB
 - Render all cards for campuses students from DB
 - Add EDIT option in cards for campus
 - Add EDIT option in cards for students
@@ -40,3 +41,4 @@ Todo
 - Add DELETE functionality for delete button on card for student
 - Add description modal for for campus
 - Add description modal for students
+

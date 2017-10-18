@@ -1,7 +1,11 @@
 const Student = require('../database/models/student');
+const Campus = require('../database/models/campus');
+
 
 exports.fetchAllStudents = function(req, res, next) {
-	Student.findAll()
+	Student.findAll({
+		include: [ Campus ]
+	})
 		.then(function(student) {
 			res.json(student);
 		})
