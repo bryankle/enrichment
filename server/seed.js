@@ -11,39 +11,39 @@ var {
 var data = {
   campus: [
   {
-    "name": "DANCITY",
+    "name": "Rutgers University",
     "picture": "http://placehold.it/32x32"
   },
   {
-    "name": "TURNLING",
+    "name": "Stanford University",
     "picture": "http://placehold.it/32x32"
   },
   {
-    "name": "EARTHMARK",
+    "name": "Rowan University",
     "picture": "http://placehold.it/32x32"
   },
   {
-    "name": "ROUGHIES",
+    "name": "William Paterson University",
     "picture": "http://placehold.it/32x32"
   },
   {
-    "name": "EXOSPACE",
+    "name": "Cornell University",
     "picture": "http://placehold.it/32x32"
   },
   {
-    "name": "GENEKOM",
+    "name": "Lehigh University",
     "picture": "http://placehold.it/32x32"
   },
   {
-    "name": "ZIALACTIC",
+    "name": "Harvard University",
     "picture": "http://placehold.it/32x32"
   },
   {
-    "name": "DAIDO",
+    "name": "Yale University",
     "picture": "http://placehold.it/32x32"
   },
   {
-    "name": "PLEXIA",
+    "name": "Boston University",
     "picture": "http://placehold.it/32x32"
   }
 ],

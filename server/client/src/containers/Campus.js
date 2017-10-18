@@ -15,6 +15,7 @@ class Campus extends Component {
   componentDidMount() {
     this.props.fetchAllCampus();
     // this.props.fetchCampus(1)
+    // this.props.deleteCampus(10)
   }
 
 	render() {
@@ -25,16 +26,23 @@ class Campus extends Component {
 
 		return (
 			<div>
+        <button
+          onClick={() => {
+            // this.props.fetchCampus(1)
+
+            this.props.deleteCampus(10);
+          }}
+        >TEST REMOVE</button>
         <Card.Group itemsPerRow={4}>
         {this.props.campus.allCampuses ? 
         campuses.map((campus) => {
-          console.log('campus render', campus)
+          console.log('campus id', campus.id)
           return <Cards
             name={campus.name}
             image={'http://lorempixel.com/400/200'}
             description={'Description goes here'}
             id={campus.id}
-            deleteCampus={this.props.deleteCampus}
+            // deleteCampus={this.props.deleteCampus(campus.id)}
           />
         })
         :
