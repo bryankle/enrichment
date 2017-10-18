@@ -14,16 +14,7 @@ import Campus from './Campus';
 class App extends Component {
 
   componentDidMount() {
-    // axios.get('/api/campus')
-    //   .then((campus) => {
-    //     console.log(campus);
-    //   })
-
-    // axios.get('/api/student/1')
-    //   .then((student) => {
-    //     console.log("GETTING SINGLE STUDENT")
-    //     console.log(student)
-    // });
+    
   }
 
   render() {

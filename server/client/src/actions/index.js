@@ -28,6 +28,20 @@ export const fetchAllCampus = () => {
 	}
 }
 
+export const fetchCampus = (id) => {
+	return dispatch => {
+		axios.get(`${ROOT_URL}/api/campus/${id}`)
+			.then(res => {
+				console.log("ACTION FETCH CAMPUS")
+				console.log(res);
+				dispatch({
+					type: FETCH_CAMPUS,
+					payload: res.data
+				})
+			})
+	}
+}
+
 // Student actions
 
 export const fetchAllStudents = () => {

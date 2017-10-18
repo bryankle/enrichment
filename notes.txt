@@ -35,8 +35,9 @@ Todo
 + Render all cards for campuses students from DB
 + Add EDIT option in cards for campus
 + Add EDIT option in cards for students
-- Add EDIT modal for campus
-- Add EDIT modal for students
++ Add EDIT modal for campus
++ Add EDIT modal for students
+- Create all action creators corresponding with routes
 - Add DELETE functionality for delete button on card for campus
 - Add DELETE functionality for delete button on card for student
 - Add description modal for for campus

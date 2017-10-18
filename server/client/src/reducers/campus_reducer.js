@@ -10,7 +10,9 @@ import {
 export default (state = {}, action) => {
 	switch(action.type) {
 		case FETCH_ALL_CAMPUS:
-			return action.payload
+			return {...state, allCampuses: action.payload}
+		case FETCH_CAMPUS:
+			return {...state, singleCampus: action.payload}
 		default:
 			return state
 	}

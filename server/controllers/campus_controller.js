@@ -11,6 +11,7 @@ exports.fetchAllCampuses = function(req, res, next) {
 }
 
 exports.fetchCampus = function(req, res, next) {
+	console.log("FETCHING SINGLE CAMPUS")
 	Campus.findOne({
 		where: {
 			id: req.params.id
@@ -74,6 +75,8 @@ exports.removeStudent = function(req, res, next) {
 	})
 	.catch(err => res.send('Student not found'))
 }
+
+
 
 
 // REVISIT - consider using editStudent function from StudentController

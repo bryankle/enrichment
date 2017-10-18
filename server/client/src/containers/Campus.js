@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Cards from '../components/Cards';
-import { Menu, Card, Image, Icon, Grid, Button } from 'semantic-ui-react'
+import { Menu, Card, Image, Icon, Grid, Button } from 'semantic-ui-react';
+import axios from 'axios';
 
 
 class Campus extends Component {
@@ -13,20 +14,21 @@ class Campus extends Component {
 
   componentDidMount() {
     this.props.fetchAllCampus();
+    this.props.fetchCampus(1)
   }
 
 	render() {
-
-    const campuses = this.props.campus;
-    console.log("campus:", campuses.length)
+    console.log(this.props);
+    const campuses = this.props.campus.allCampuses;
+    console.log('campuses', campuses)
+    // console.log("campus:", campuses.length)
 
 
 		return (
 			<div>
         <Card.Group itemsPerRow={4}>
-        {campuses.length > 0 ? 
+        {this.props.campus.allCampuses ? 
         campuses.map(function(campus) {
-          console.log(campus)
           return <Cards
             name={campus.name}
             image={'http://lorempixel.com/400/200'}
