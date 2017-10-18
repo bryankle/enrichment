@@ -8,7 +8,10 @@ class CampusTable extends Component {
 		console.log('CAMPUSTABLE')
 		console.log(this.props.students)
 		const { students, removeStudent } = this.props;
-		const renderTableRows = students.map(function(student, idx) {
+
+		const renderTableRows = students.filter(function(student) {
+			return student.campusId !== null;
+		}).map(function(student, idx) {
 			idx++;
 			return (<TableRow 
 					student={student} 

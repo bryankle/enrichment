@@ -61,6 +61,8 @@ export const removeStudent = (id) => {
 	return dispatch => {
 		axios.put(`${ROOT_URL}/api/campus/remove/${id}`)
 			.then(res => {
+				console.log('ACTION - Removing student');
+				console.log(res.data);
 				dispatch({
 					type: REMOVE_STUDENT,
 					payload: res.data

@@ -20,7 +20,26 @@ export default (state = {}, action) => {
 				console.log(item.id, 'and', idToDelete);
 				return item.id !== idToDelete
 			})}
-			
+		case REMOVE_STUDENT:
+			const removedStudentId = action.payload;
+			let currentStudents = [...state.singleCampus.students]
+			var removedStudent = currentStudents.find(function(student) {
+				return student.id === removedStudentId;
+			})
+			removedStudent.campusId = null;
+			console.log('currentStudents', currentStudents)
+			// console.log('updateRemoved', updateRemoved)
+			console.log('REDUCER - REMOVE_STUDENT')
+			// console.log('removedStudentId', removedStudentId);
+			console.log('state.singleCampus', state.singleCampus)
+			console.log('currentStudents', currentStudents);
+			return {
+				...state,
+				singleCampus: {
+					...state.singleCampus,
+					students: currentStudents
+				}
+			}
 		default:
 			return state
 	}
