@@ -5,13 +5,17 @@ import { Table, Icon } from 'semantic-ui-react';
 class TableRow extends Component {
 
 	render() {
+
+		const { name, email } = this.props.student;
+		const { idx } = this.props;
+		console.log(this.props)
+
 		return (
 			<Table.Row>
-                <Table.Cell>No Name Specified</Table.Cell>
-                <Table.Cell>Unknown</Table.Cell>
-                <Table.Cell>    
-                <Icon fitted name='delete' size='large'/>
-                </Table.Cell>
+                <Table.Cell>{idx}</Table.Cell>
+                <Table.Cell>{name}</Table.Cell>
+               	<Table.Cell>{email}</Table.Cell>
+                <Table.Cell><Icon fitted name='delete' size='large'/></Table.Cell>
               </Table.Row>
 		)
 	}

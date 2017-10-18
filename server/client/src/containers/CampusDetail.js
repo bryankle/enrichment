@@ -4,7 +4,7 @@ import * as actions from '../actions';
 import { Menu, Card, Image, Icon, Grid, Button, Table } from 'semantic-ui-react';
 
 import Cards from '../components/Cards';
-import TableRow from '../components/TableRow';
+import CampusTable from '../components/CampusTable';
 
 class CampusDetail extends Component {
 
@@ -20,36 +20,30 @@ class CampusDetail extends Component {
 
 	render() {
     console.log(this.props)
-		return (
 
+    if (this.props.campus.singleCampus) {
+      console.log("Students belonging to ", this.props.campus.singleCampus.name);
+      console.log(this.props.campus.singleCampus.students)
+      const { name, students } = this.props.campus.singleCampus;
 
-      <Grid>
-        <Grid.Column width={8}>
-          <h1>{this.props.campus.singleCampus ? this.props.campus.singleCampus.name : ''}</h1>
-          <Image src='http://lorempixel.com/400/200' />
-        </Grid.Column>
-        <Grid.Column width={8}>
+      return (
 
-          <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>ID</Table.HeaderCell>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>
-                  <Icon fitted name='add user' size='large'/>
+        <Grid>
+          <Grid.Column width={8}>
+            <h1>{name}</h1>
+            <Image src='http://lorempixel.com/400/200' />
+          </Grid.Column>
+          <Grid.Column width={8}>
 
-                </Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
+            <CampusTable students={students} />
 
-            <Table.Body>
+          </Grid.Column>
+        </Grid>
+      )
 
-            </Table.Body>
-          </Table>
+    }
 
-        </Grid.Column>
-      </Grid>
-		)
+    return <div></div>
 	}
 }
 
