@@ -9,7 +9,7 @@ import {
 export default (state = {}, action) => {
 	switch(action.type) {
 		case FETCH_ALL_STUDENTS:
-			return action.payload
+			return {...state, allStudents: action.payload}
 		case DELETE_STUDENT:
 			const idToDelete = action.payload;
 			return {...state, allStudents: state.allStudents.filter((item) => {
