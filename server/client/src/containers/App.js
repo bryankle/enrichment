@@ -10,13 +10,9 @@ import Navbar from './Navbar';
 import Home from './Home';
 import Students from './Students';
 import Campus from './Campus';
-import SingleCampus from './SingleCampus';
+import CampusDetail from './CampusDetail';
 
 class App extends Component {
-
-  componentDidMount() {
-    
-  }
 
   render() {
 
@@ -28,8 +24,10 @@ class App extends Component {
              <Switch>
               <Route index path="/home" component={Home} />
               <Route exact path="/campus" component={Campus} />
-              <Route path="/campus/:id" component={Home} />
-              <Route path="/students" component={Students} />
+              <Route path="/campus/:id" component={CampusDetail} /> 
+              <Route path="/campus/:id" render={(props) => <CampusDetail {...props}/>} /> 
+              <Route exact path="/students" component={Students} />
+              <Route path="/students/:id" component={Students} />
              </Switch>
           </Container>
         </Router>
