@@ -14,6 +14,7 @@ export default (state = {}, action) => {
 		case FETCH_CAMPUS:
 			return {...state, singleCampus: action.payload}
 		case DELETE_CAMPUS:
+			
 			return {...state, allCampuses: []}
 
 		default:

@@ -10,6 +10,12 @@ const Campus = db.define('campus', {
 		type: Sequelize.STRING,
 		allowNull: false
 	}
-})
+});
+
+// Campus.beforeDestroy(function() {
+// 	console.log("BEFORE DESTROY")
+// 	console.log(this);
+// });
+
 
 module.exports = Campus;

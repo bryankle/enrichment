@@ -42,4 +42,6 @@ Todo
 - Add DELETE functionality for delete button on card for student
 - Add description modal for for campus
 - Add description modal for students
-
+- Display all students belonging to specfic university in modal
+- Add campus form to add new campus to database
+- Add student form to add new student to database

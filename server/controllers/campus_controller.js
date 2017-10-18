@@ -52,12 +52,20 @@ exports.editCampus = function(req, res, next) {
 
 exports.deleteCampus = function(req, res, next) {
 	const id = req.params.id;
-	Campus.findOne({
-		where: {
-			id
-		}
+	console.log("ACTION DELETE")
+	return Campus.destroy({
+	    where: {
+	        id: id
+	    }
 	})
-	.then(campus => campus.destroy());
+	.then(function(rowDeleted){ // rowDeleted will return number of rows deleted
+	  if(rowDeleted === 1){
+	     console.log('Deleted successfully');
+	     res.send(200)
+	   }
+	}, function(err){
+	    console.log(err); 
+	});
 }
 
 exports.removeStudent = function(req, res, next) {

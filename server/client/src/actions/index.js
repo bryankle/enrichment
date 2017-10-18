@@ -45,10 +45,10 @@ export const fetchCampus = (id) => {
 
 export const deleteCampus = (id) => {
 	return dispatch => {
-		axios.put(`${ROOT_URL}/api/campus/${id}`) // axios.delete doesn't work
+		axios.delete(`${ROOT_URL}/api/campus/delete/${id}`) // axios.delete doesn't work
 			.then(res => {
 				console.log("Deleting a campus...");
-				console.log(res.data)
+				console.log(id)
 				dispatch({
 					type: DELETE_CAMPUS,
 					payload: res.data
@@ -77,7 +77,7 @@ export const deleteCampus = (id) => {
 
 export const fetchAllStudents = () => {
 	return dispatch => {
-		axios.get(`${ROOT_URL}/api/student`)
+		axios.delete(`${ROOT_URL}/api/student`)
 			.then(res => {
 				dispatch({
 					type: FETCH_ALL_STUDENTS,
