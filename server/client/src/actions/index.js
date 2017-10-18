@@ -87,6 +87,19 @@ export const fetchAllStudents = () => {
 	}
 }
 
+export const fetchStudent = (id) => {
+	return dispatch => {
+		axios.get(`${ROOT_URL}/api/student/${id}`)
+			.then(res => {
+				console.log("Fetching a student...")
+				dispatch({
+					type: FETCH_STUDENT,
+					payload: res.data
+				})
+			})
+	}
+}
+
 export const deleteStudent = (id) => {
 	return dispatch => {
 		axios.delete(`${ROOT_URL}/api/student/${id}`)
