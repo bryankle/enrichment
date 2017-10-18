@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import Cards from '../components/Cards';
-import { Menu, Card, Image, Icon, Grid, Button } from 'semantic-ui-react';
-import axios from 'axios';
+import { Menu, Card, Image, Icon, Grid, Button, Table } from 'semantic-ui-react';
 
+import Cards from '../components/Cards';
+import TableRow from '../components/TableRow';
 
 class CampusDetail extends Component {
 
@@ -21,9 +21,34 @@ class CampusDetail extends Component {
 	render() {
     console.log(this.props)
 		return (
-			<div>
-        {this.props.campus.singleCampus ? this.props.campus.singleCampus.name : ''}
-			</div>
+
+
+      <Grid>
+        <Grid.Column width={8}>
+          <h1>{this.props.campus.singleCampus ? this.props.campus.singleCampus.name : ''}</h1>
+          <Image src='http://lorempixel.com/400/200' />
+        </Grid.Column>
+        <Grid.Column width={8}>
+
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>ID</Table.HeaderCell>
+                <Table.HeaderCell>Name</Table.HeaderCell>
+                <Table.HeaderCell>
+                  <Icon fitted name='add user' size='large'/>
+
+                </Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+
+            <Table.Body>
+
+            </Table.Body>
+          </Table>
+
+        </Grid.Column>
+      </Grid>
 		)
 	}
 }

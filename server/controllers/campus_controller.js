@@ -15,7 +15,8 @@ exports.fetchCampus = function(req, res, next) {
 	Campus.findOne({
 		where: {
 			id: req.params.id
-		}
+		},
+		include: [ Student ]
 	})
 	.then(function(campus) {
 		res.json(campus);

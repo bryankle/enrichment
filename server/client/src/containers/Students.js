@@ -26,7 +26,7 @@ class Student extends Component {
           students.map((student) => {
             console.log(student);
             return <Cards
-              type={'student'}
+              type={'students'}
               name={student.name}
               image={'http://lorempixel.com/400/200'}
               description={student.campus ? student.campus.name : 'Unaffiliated'}

@@ -19,6 +19,7 @@ class StudentDetail extends Component {
   }
 
 	render() {
+    console.log("STUDENT DETAIL")
     console.log(this.props)
 		return (
 			<div>
