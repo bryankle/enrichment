@@ -46,12 +46,12 @@ export const fetchCampus = (id) => {
 export const deleteCampus = (id) => {
 	return dispatch => {
 		axios.delete(`${ROOT_URL}/api/campus/delete/${id}`) // axios.delete doesn't work
-			.then(res => {
-				console.log("Deleting a campus...");
+			.then(res => {	// then does not execute body; axios.delete not resolving promise?
+				console.log("Deleting a campus..."); 
 				console.log(id)
 				dispatch({
 					type: DELETE_CAMPUS,
-					payload: res.data
+					payload: id
 				})
 			})
 	}

@@ -14,8 +14,12 @@ export default (state = {}, action) => {
 		case FETCH_CAMPUS:
 			return {...state, singleCampus: action.payload}
 		case DELETE_CAMPUS:
-			
-			return {...state, allCampuses: []}
+			const idToDelete = action.payload;
+			return {...state, allCampuses: state.allCampuses.filter((item) => {
+				console.log(item);
+				console.log(item.id, 'and', idToDelete);
+				return item.id !== idToDelete
+			})}
 
 		default:
 			return state
