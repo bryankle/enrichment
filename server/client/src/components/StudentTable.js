@@ -2,20 +2,15 @@ import React, { Component } from 'react';
 import { Icon, Table } from 'semantic-ui-react';
 import TableRow from './TableRow';
 
-class CampusTable extends Component {
+class StudentTable extends Component {
 
 	render() {
-		console.log('CAMPUSTABLE')
+		console.log('Student Table')
 		console.log(this.props.students)
-		const { students, removeStudent } = this.props;
+		const { students } = this.props;
 		const renderTableRows = students.map(function(student, idx) {
 			idx++;
-			return (<TableRow 
-					student={student} 
-					idx={idx}
-					removeStudent={removeStudent}
-					/>
-				)
+			return <TableRow student={student} idx={idx}/>
 		})
 
 		return (
@@ -38,4 +33,4 @@ class CampusTable extends Component {
 
 }
 
-export default CampusTable;
+export default StudentTable;

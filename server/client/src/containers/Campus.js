@@ -14,8 +14,8 @@ class Campus extends Component {
 
   componentDidMount() {
     this.props.fetchAllCampus();
-    // this.props.fetchCampus(1)
-    // this.props.deleteCampus(10)
+    
+    // this.props.removeStudent(1);
   }
 
 	render() {

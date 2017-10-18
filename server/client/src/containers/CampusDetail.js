@@ -19,6 +19,7 @@ class CampusDetail extends Component {
   }
 
 	render() {
+    console.log("CAMPUS DETAIL")
     console.log(this.props)
 
     if (this.props.campus.singleCampus) {
@@ -35,7 +36,10 @@ class CampusDetail extends Component {
           </Grid.Column>
           <Grid.Column width={8}>
 
-            <CampusTable students={students} />
+            <CampusTable 
+              students={students} 
+              removeStudent={this.props.removeStudent}
+              />
 
           </Grid.Column>
         </Grid>

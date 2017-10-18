@@ -6,8 +6,8 @@ class TableRow extends Component {
 
 	render() {
 
-		const { name, email } = this.props.student;
-		const { idx } = this.props;
+		const { id, name, email } = this.props.student;
+		const { idx, removeStudent } = this.props;
 		console.log(this.props)
 
 		return (
@@ -15,7 +15,15 @@ class TableRow extends Component {
                 <Table.Cell>{idx}</Table.Cell>
                 <Table.Cell>{name}</Table.Cell>
                	<Table.Cell>{email}</Table.Cell>
-                <Table.Cell><Icon fitted name='delete' size='large'/></Table.Cell>
+                <Table.Cell>
+                	<Icon 
+                		fitted name='delete' 
+                		size='large'
+                		onClick={() => {
+                			removeStudent(id);
+                		}}
+            		/>
+            	</Table.Cell>
               </Table.Row>
 		)
 	}

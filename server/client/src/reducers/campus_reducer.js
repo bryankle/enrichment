@@ -20,7 +20,7 @@ export default (state = {}, action) => {
 				console.log(item.id, 'and', idToDelete);
 				return item.id !== idToDelete
 			})}
-
+			
 		default:
 			return state
 	}

@@ -57,19 +57,17 @@ export const deleteCampus = (id) => {
 	}
 }
 
-
-
-// export const removeStudent = (id) => {
-// 	return dispatch => {
-// 		axios.put(`${ROOT_URL}/api/remove/${id}`)
-// 			.then(res => {
-// 				dispatch({
-// 					type: REMOVE_STUDENT,
-// 					payload: res.data
-// 				})
-// 			})
-// 	}
-// }
+export const removeStudent = (id) => {
+	return dispatch => {
+		axios.put(`${ROOT_URL}/api/campus/remove/${id}`)
+			.then(res => {
+				dispatch({
+					type: REMOVE_STUDENT,
+					payload: res.data
+				})
+			})
+	}
+}
 
 
 

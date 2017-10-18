@@ -18,8 +18,8 @@ class Cards extends Component {
 	}
 
 	render() {
-		console.log("CARDS")
-		console.log(this.props)
+		// console.log("CARDS")
+		// console.log(this.props)
 		const { id, type } = this.props;
 		return(
 			<Card>

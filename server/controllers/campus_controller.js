@@ -71,7 +71,7 @@ exports.deleteCampus = function(req, res, next) {
 
 exports.removeStudent = function(req, res, next) {
 	const studentId = req.params.studentId;
-	console.log('studentId', studentId)
+	console.log("Removing student from the controller")
 	
 	Student.update(
 		{ campusId: null },
