@@ -148,10 +148,6 @@ export const createStudent = (name, email) => {
 	}
 }
 
-
-// 	app.post('/api/student', StudentController.createStudent);
-
-
 export const deleteStudent = (id) => {
 	return dispatch => {
 		axios.delete(`${ROOT_URL}/api/student/${id}`)
@@ -161,6 +157,20 @@ export const deleteStudent = (id) => {
 				dispatch({
 					type: DELETE_STUDENT,
 					payload: id
+				})
+			})
+	}
+}
+
+export const editStudent = (studentId, name, email, campusId) => {
+	return dispatch => {
+		console.log("ACTION - EDIT_STUDENT")
+		axios.put(`${ROOT_URL}/api/student/${studentId}`, { name, email, campusId })
+			.then(res => {
+				console.log('Dispatch edit student')
+				dispatch({
+					type: EDIT_STUDENT,
+					payload: res.data
 				})
 			})
 	}

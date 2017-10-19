@@ -53,11 +53,23 @@ exports.deleteStudent = function(req, res, next) {
 exports.editStudent = function(req, res, next) {
 	const id = req.params.id;
 	const { name, email, campusId } = req.body;
-	console.log('EDIT STUDENT')
+	console.log('req.body', req.body);
+
+	console.log('CONTROLLER - EDIT STUDENT')
 	Student.update(
-		req.body, 
+		{
+			name,
+			email,
+			campusId
+		}, 
 		{ where: {
 			id: id
 		}}
 	)
+	.then((data) => {
+		res.send(data);
+	})
+	.catch((err) => {
+		res.send('campusId remained the same')
+	})
 }

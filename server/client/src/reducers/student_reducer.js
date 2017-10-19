@@ -27,6 +27,9 @@ export default (state = {}, action) => {
 				console.log(item.id, 'and', idToDelete);
 				return item.id !== idToDelete
 			})}
+		case EDIT_STUDENT:
+			console.log('REDUCER - EDIT_STUDENT')
+			return state;
 		default:
 			return state
 	}
