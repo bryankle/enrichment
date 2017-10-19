@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import { Button, Checkbox, Form } from 'semantic-ui-react';
-
 
 class CampusForm extends Component {
 	constructor(props) {
@@ -25,6 +26,12 @@ class CampusForm extends Component {
 	handleSubmit() {
 		console.log('name', this.state.inputNameValue);
 		console.log('link', this.state.inputImgUrlValue);
+		const campusName = this.state.inputNameValue;
+		const imgUrl = this.state.inputImgUrlValue;
+		this.setState({
+			inputNameValue: '',
+			inputImgUrlValue: ''
+		})
 		this.props.closeModal();
 	}
 
@@ -54,4 +61,4 @@ class CampusForm extends Component {
 	}
 }
 
-export default CampusForm;
+export default connect(null, actions)(CampusForm);
