@@ -20,7 +20,7 @@ class Campus extends Component {
   //     name: 'newcampus', 
   //     picture: 'newpicture' })
 
-    this.props.createCampus('hello world', 'hello ')
+    // this.props.createCampus('hello world', 'hello ')
 
 
   }
@@ -36,14 +36,16 @@ class Campus extends Component {
 
 		return (
 			<div>
-
         <Grid divided='vertically'>
           <Grid.Row columns={2}>
             <Grid.Column>
               <h1>Browse Campuses</h1>
             </Grid.Column>
            <Grid.Column>
-
+           <button
+        onClick={() => {    this.props.createCampus('hello world', 'hello ')
+}}
+        >Test</button>
               <ModalForm />
               
             </Grid.Column>

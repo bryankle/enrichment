@@ -50,9 +50,10 @@ export const createCampus = (name, picture) => {
 			.then(res => {
 				console.log('ACTION - Creating a campus')
 				console.log(res.data);
-				// dispatch({
-
-				// })
+				dispatch({
+					type: CREATE_CAMPUS,
+					payload: res.data
+				})
 			})
 	}
 }

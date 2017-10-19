@@ -14,6 +14,16 @@ export default (state = {}, action) => {
 			return {...state, allCampuses: action.payload}
 		case FETCH_CAMPUS:
 			return {...state, singleCampus: action.payload}
+
+		case CREATE_CAMPUS:
+			console.log("REDUCER - CREATE_CAMPUS");
+			console.log('state', state);
+			console.log('action.payload', action.payload)
+			return {
+					...state,
+					allCampuses: [...state.allCampuses, action.payload]
+				}
+
 		case DELETE_CAMPUS:
 			const idToDelete = action.payload;
 			return {...state, allCampuses: state.allCampuses.filter((item) => {
