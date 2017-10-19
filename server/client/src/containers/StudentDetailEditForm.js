@@ -11,7 +11,7 @@ class StudentForm extends Component {
 			inputNameValue: this.props.student.name,
 			inputEmailValue: this.props.student.email,
 			currentDropdown: '',
-			selectedCampusId: 0
+			selectedCampusId: this.props.student.campusId
 		}
 		this.handleInputName = this.handleInputName.bind(this);
 		this.handleInputEmail = this.handleInputEmail.bind(this);
@@ -27,20 +27,12 @@ class StudentForm extends Component {
 	}
 
 	handleSubmit() {
-		console.log('name', this.state.inputNameValue);
-		console.log('email', this.state.inputEmailValue);
 		const studentName = this.state.inputNameValue;
 		const email = this.state.inputEmailValue;
 		const studentId = this.props.student.id;
 		const campusId = this.state.selectedCampusId;
-		const campusName = this.state.currentDropdown;
+		const campusName = this.state.currentDropdown || this.props.student.campus.name;
 		const currentCampusId = this.props.student.campusId;
-		console.log('studentName', studentName);
-		console.log('email', email);
-		console.log('studentId', studentId);
-		console.log('campusId', campusId);
-		// Action creator goes here
-		// this.props.createStudent(studentName, email)
 		this.props.editStudent(studentId, studentName, email, campusId, campusName)
 		this.props.closeModal();
 	}

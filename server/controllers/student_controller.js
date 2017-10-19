@@ -56,12 +56,9 @@ exports.editStudent = function(req, res, next) {
 	console.log('req.body', req.body);
 
 	console.log('CONTROLLER - EDIT STUDENT')
+
 	Student.update(
-		{
-			name,
-			email,
-			campusId
-		}, 
+		req.body, 
 		{ where: {
 			id: id
 		}}
