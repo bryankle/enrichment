@@ -134,6 +134,24 @@ export const fetchStudent = (id) => {
 	}
 }
 
+export const createStudent = (name, email) => {
+	console.log('createStudent from action')
+	return dispatch => {
+		axios.post('/api/student', { name, email })
+			.then(res => {
+				console.log('Creating a student')
+				dispatch({
+					type: CREATE_STUDENT,
+					payload: res.data
+				})
+			})
+	}
+}
+
+
+// 	app.post('/api/student', StudentController.createStudent);
+
+
 export const deleteStudent = (id) => {
 	return dispatch => {
 		axios.delete(`${ROOT_URL}/api/student/${id}`)

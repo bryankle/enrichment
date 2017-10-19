@@ -29,6 +29,7 @@ exports.createStudent = function(req, res, next) {
 		name,
 		email
 	})
+	.then(student => res.send(student))
 }
 
 exports.deleteStudent = function(req, res, next) {

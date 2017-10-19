@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Button, Checkbox, Form } from 'semantic-ui-react';
 
-class CampusForm extends Component {
+class StudentForm extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			inputNameValue: '',
-			inputImgUrlValue: ''
+			inputEmailValue: ''
 		}
 		this.handleInputName = this.handleInputName.bind(this);
-		this.handleImgUrlValue = this.handleImgUrlValue.bind(this);
+		this.handleInputEmail = this.handleInputEmail.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
@@ -19,21 +19,21 @@ class CampusForm extends Component {
 		this.setState({ inputNameValue: event.target.value })
 	}
 
-	handleImgUrlValue(event) {
-		this.setState({ inputImgUrlValue: event.target.value })
+	handleInputEmail(event) {
+		this.setState({ inputEmailValue: event.target.value })
 	}
 
 	handleSubmit() {
 		console.log('name', this.state.inputNameValue);
-		console.log('link', this.state.inputImgUrlValue);
-		const campusName = this.state.inputNameValue;
-		const imgUrl = this.state.inputImgUrlValue;
+		console.log('email', this.state.inputEmailValue);
+		const studentName = this.state.inputNameValue;
+		const email = this.state.inputEmailValue;
 
 		// Action creator goes here
-		this.props.createCampus(campusName, imgUrl)
+		this.props.createStudent(studentName, email)
 		this.setState({
 			inputNameValue: '',
-			inputImgUrlValue: ''
+			inputEmailValue: ''
 		})
 		this.props.closeModal();
 	}
@@ -43,18 +43,18 @@ class CampusForm extends Component {
 			<Form onSubmit={
 				this.handleSubmit}>
 			    <Form.Field>
-			      <label>Campus Name</label>
+			      <label>Student name</label>
 			      <input 
 			      	onChange={this.handleInputName}
 			      	value={this.state.inputNameValue}
-			      	placeholder='Enter campus name' />
+			      	placeholder='Enter student name' />
 			    </Form.Field>
 			    <Form.Field>
-			      <label>Image Photo</label>
+			      <label>Email</label>
 			      <input 
-			      	onChange={this.handleImgUrlValue}
-			      	value={this.state.inputImgUrlValue}
-			      	placeholder='Enter URL' />
+			      	onChange={this.handleInputEmail}
+			      	value={this.state.inputEmailValue}
+			      	placeholder='Enter student email' />
 			    </Form.Field>
 			    <Button 
 			    	type='submit'
@@ -64,4 +64,4 @@ class CampusForm extends Component {
 	}
 }
 
-export default connect(null, actions)(CampusForm);
+export default connect(null, actions)(StudentForm);

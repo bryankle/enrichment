@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Menu, Card, Image, Icon, Grid, Button } from 'semantic-ui-react'
 import Cards from '../components/Cards';
+import StudentForm from './StudentForm';
+import ModalForm from '../components/Modals';
+
 
 class Student extends Component {
 
@@ -21,6 +24,26 @@ class Student extends Component {
     const students = this.props.student.allStudents;
 		return (
 			 <div>
+
+        <Grid divided='vertically'>
+          <Grid.Row columns={2}>
+            <Grid.Column>
+              <h1>Students</h1>
+            </Grid.Column>
+           <Grid.Column>
+              <ModalForm 
+                header={'Add a student'}
+                Form={StudentForm}
+              />
+              
+            </Grid.Column>
+          </Grid.Row>
+
+          <Grid.Row columns={1}>
+           
+          </Grid.Row>
+        </Grid>
+
         <Card.Group itemsPerRow={4}>
           {this.props.student.allStudents ? 
           students.map((student) => {

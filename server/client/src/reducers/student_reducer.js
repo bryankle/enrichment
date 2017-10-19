@@ -12,6 +12,14 @@ export default (state = {}, action) => {
 			return {...state, allStudents: action.payload}
 		case FETCH_STUDENT:
 			return {...state, singleStudent: action.payload}
+
+		case CREATE_STUDENT:
+			console.log('ACTION - Creating a student');
+			console.log('action.payload', action.payload)
+			console.log('state', state)
+			return {...state,
+					allStudents: [...state.allStudents, action.payload]
+				};
 		case DELETE_STUDENT:
 			const idToDelete = action.payload;
 			return {...state, allStudents: state.allStudents.filter((item) => {

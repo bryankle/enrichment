@@ -22,15 +22,16 @@ class ModalForm extends Component {
   }
 
   render() {
+
+    const { header, Form } = this.props; 
+
     return(
       <Modal 
         open={this.state.modalOpen}
         trigger={<Icon onClick={this.openModal} name='add circle' size='big' style={buttonStyle}/>}>
-      <Modal.Header>Add a campus</Modal.Header>
+      <Modal.Header>{header}</Modal.Header>
       <Modal.Content image>
-       
-        <CampusForm closeModal={this.closeModal}/>
-
+        <Form closeModal={this.closeModal}/>
       </Modal.Content>
     </Modal>
     )

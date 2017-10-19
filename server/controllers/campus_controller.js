@@ -30,7 +30,7 @@ exports.createCampus = function(req, res, next) {
 		name,
 		picture
 	})
-	.then(function(data) {
+	.then(data => {
 		console.log('data', data);
 		res.send(data)
 	})
