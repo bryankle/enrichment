@@ -52,7 +52,7 @@ exports.deleteStudent = function(req, res, next) {
 
 exports.editStudent = function(req, res, next) {
 	const id = req.params.id;
-	const { name, email, campusId } = req.body;
+	const { name, email, campusId, campusName } = req.body;
 	console.log('req.body', req.body);
 
 	console.log('CONTROLLER - EDIT STUDENT')
@@ -67,7 +67,7 @@ exports.editStudent = function(req, res, next) {
 		}}
 	)
 	.then((data) => {
-		res.send(data);
+		res.send(req.body);
 	})
 	.catch((err) => {
 		res.send('campusId remained the same')

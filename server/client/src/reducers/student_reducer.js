@@ -28,8 +28,20 @@ export default (state = {}, action) => {
 				return item.id !== idToDelete
 			})}
 		case EDIT_STUDENT:
-			console.log('REDUCER - EDIT_STUDENT')
-			return state;
+			console.log('REDUCER - EDIT_STUDENT');
+			console.log('state', state)
+			console.log('action.payload', action.payload)
+			return {...state,
+				singleStudent: {
+					...state.singleStudent,
+					campus: {
+						...state.campus,
+						name: action.payload.campusName
+					},
+					email: action.payload.email,
+					name: action.payload.name
+				}
+				};
 		default:
 			return state
 	}

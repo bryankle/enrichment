@@ -162,10 +162,10 @@ export const deleteStudent = (id) => {
 	}
 }
 
-export const editStudent = (studentId, name, email, campusId) => {
+export const editStudent = (studentId, name, email, campusId, campusName) => {
 	return dispatch => {
 		console.log("ACTION - EDIT_STUDENT")
-		axios.put(`${ROOT_URL}/api/student/${studentId}`, { name, email, campusId })
+		axios.put(`${ROOT_URL}/api/student/${studentId}`, { name, email, campusId, campusName })
 			.then(res => {
 				console.log('Dispatch edit student')
 				dispatch({

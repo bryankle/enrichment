@@ -31,16 +31,17 @@ class StudentForm extends Component {
 		console.log('email', this.state.inputEmailValue);
 		const studentName = this.state.inputNameValue;
 		const email = this.state.inputEmailValue;
-
 		const studentId = this.props.student.id;
 		const campusId = this.state.selectedCampusId;
+		const campusName = this.state.currentDropdown;
+		const currentCampusId = this.props.student.campusId;
 		console.log('studentName', studentName);
 		console.log('email', email);
 		console.log('studentId', studentId);
 		console.log('campusId', campusId);
 		// Action creator goes here
 		// this.props.createStudent(studentName, email)
-		this.props.editStudent(studentId, studentName, email, campusId)
+		this.props.editStudent(studentId, studentName, email, campusId, campusName)
 		this.props.closeModal();
 	}
 
