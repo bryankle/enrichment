@@ -1,24 +1,44 @@
-import React from 'react'
-import { Button, Header, Image, Modal, Icon } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Button, Header, Image, Modal, Icon } from 'semantic-ui-react';
+import CampusForm from '../containers/CampusForm';
+
+class ModalForm extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      modalOpen: false
+    }
+  this.openModal = this.openModal.bind(this);
+  this.closeModal = this.closeModal.bind(this);
+  }
+
+  openModal() {
+    this.setState({ modalOpen: true })
+  }
+
+  closeModal() {
+    this.setState({ modalOpen: false })
+  }
+
+  render() {
+    return(
+      <Modal 
+        open={this.state.modalOpen}
+        trigger={<Icon onClick={this.openModal} name='add circle' size='big' style={buttonStyle}/>}>
+      <Modal.Header>Add a campus</Modal.Header>
+      <Modal.Content image>
+       
+        <CampusForm closeModal={this.closeModal}/>
+
+      </Modal.Content>
+    </Modal>
+    )
+  }
+}
+
+export default ModalForm;
+
 const buttonStyle = {
       float: 'right'
     }
-const ModalModalExample = () => (
-  <Modal trigger={<Icon 
-                name='add circle' 
-                size='big' 
-                style={buttonStyle}
-                />}>
-    <Modal.Header>Select a Photo</Modal.Header>
-    <Modal.Content image>
-      <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
-      <Modal.Description>
-        <Header>Default Profile Image</Header>
-        <p>We've found the following gravatar image associated with your e-mail address.</p>
-        <p>Is it okay to use this photo?</p>
-      </Modal.Description>
-    </Modal.Content>
-  </Modal>
-)
-
-export default ModalModalExample
