@@ -45,8 +45,8 @@ Todo
 + Display all students belonging to specfic university in modal
 + Add student to campus roster
 + Add campus form to add new campus to database
-- Add student form to add new student to database
++ Add student form to add new student to database
 + Create ADD form for campus
-- Create ADD form for students
++ Create ADD form for students
 - Create EDIT form for campus
 - Create EDIT form for students

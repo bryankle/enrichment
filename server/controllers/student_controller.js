@@ -14,6 +14,7 @@ exports.fetchAllStudents = function(req, res, next) {
 exports.fetchStudent = function(req, res, next) {
 	const id = req.params.id;
 	Student.findOne({
+		include: [ Campus ],
 		where: {
 			id: id
 		}
