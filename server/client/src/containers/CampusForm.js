@@ -28,6 +28,9 @@ class CampusForm extends Component {
 		console.log('link', this.state.inputImgUrlValue);
 		const campusName = this.state.inputNameValue;
 		const imgUrl = this.state.inputImgUrlValue;
+
+		// Action creator goes here
+
 		this.setState({
 			inputNameValue: '',
 			inputImgUrlValue: ''

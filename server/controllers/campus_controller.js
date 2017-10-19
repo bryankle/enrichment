@@ -25,9 +25,14 @@ exports.fetchCampus = function(req, res, next) {
 
 exports.createCampus = function(req, res, next) {
 	const { name, picture } = req.body;
+	console.log("Creating campus...")
 	Campus.create({
 		name,
 		picture
+	})
+	.then(function(data) {
+		console.log('data', data);
+		res.send(data)
 	})
 }
 

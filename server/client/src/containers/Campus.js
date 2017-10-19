@@ -15,7 +15,14 @@ class Campus extends Component {
 
   componentDidMount() {
     this.props.fetchAllCampus();
-    // this.props.addStudent(2, 2);
+
+  // axios.post('/api/campus', { 
+  //     name: 'newcampus', 
+  //     picture: 'newpicture' })
+
+    this.props.createCampus('hello world', 'hello ')
+
+
   }
 
 	render() {

@@ -44,6 +44,19 @@ export const fetchCampus = (id) => {
 	}
 }
 
+export const createCampus = (name, picture) => {
+	return dispatch => {
+		axios.post(`${ROOT_URL}/api/campus`,{ name, picture })
+			.then(res => {
+				console.log('ACTION - Creating a campus')
+				console.log(res.data);
+				// dispatch({
+
+				// })
+			})
+	}
+}
+
 export const deleteCampus = (id) => {
 	return dispatch => {
 		axios.delete(`${ROOT_URL}/api/campus/delete/${id}`) // axios.delete doesn't work
