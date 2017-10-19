@@ -71,6 +71,20 @@ export const removeStudent = (id) => {
 	}
 }
 
+export const addStudent = (campusId, studentId) => {
+	return dispatch => {
+		axios.put(`${ROOT_URL}/api/${campusId}/add/${studentId}`)
+			.then(res => {
+				console.log('ACTION - Adding student to campus');
+				console.log(res.data);
+				// dispatch({
+
+				// })
+			})
+	}
+}
+
+
 
 
 // Student actions

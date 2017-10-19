@@ -15,6 +15,10 @@ class Campus extends Component {
 
   componentDidMount() {
     this.props.fetchAllCampus();
+    //  app.put('/api/campus/:campusId/add/:studentId', CampusController.addStudent);
+
+    axios.put('/api/campus/2/add/9');
+    // axios.put('/api/campus/remove/2')
   }
 
 	render() {

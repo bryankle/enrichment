@@ -9,7 +9,7 @@ module.exports = function(app) {
 	// Campus Routes
 	app.get('/api/campus', CampusController.fetchAllCampuses);
 	app.get('/api/campus/:id/', CampusController.fetchCampus);
-	app.put('/api/campus/add/:studentId');
+	app.put('/api/campus/:campusId/add/:studentId', CampusController.addStudent);
 	app.put('/api/campus/remove/:studentId', CampusController.removeStudent);
 	app.put('/api/campus/:id/', CampusController.editCampus);
 	app.post('/api/campus', CampusController.createCampus);

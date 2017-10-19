@@ -87,13 +87,16 @@ exports.removeStudent = function(req, res, next) {
 
 exports.addStudent = function(req, res, next) {
 	const studentId = req.params.studentId;
-	const campusId = ''; // Find out how to obtain
-	Student.update({
+	const campusId = req.params.campusId; // Find out how to obtain
+	console.log("CONTROLLER - ADD STUDENT")
+	console.log('studentId', studentId);
+	console.log('campusId', campusId);
+	Student.update(
 		{ campusId },
 		{ where: {
 			id: studentId
 		}}
-	})
+	)
 	.then(function(student) {
 		res.send(studentId); // Send payload of studentId removed
 	})
