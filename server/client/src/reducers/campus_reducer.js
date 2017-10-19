@@ -32,12 +32,16 @@ export default (state = {}, action) => {
 			})
 			addedStudent.campusId = campusId;
 			console.log('addedStudent', addedStudent)
-	
+			// Change student's campusId to appropriate
+			let filteredStudents = allStudents.filter(function(student) {
+				return student.campusId === campusId;
+			})
+			console.log('Filtered students', filteredStudents)
 			return {
 				...state,
 				singleCampus: {
 					...state.singleCampus,
-					students: [...state.singleCampus.students, addedStudent]
+					students: filteredStudents
 				}
 			};
 		case REMOVE_STUDENT:
