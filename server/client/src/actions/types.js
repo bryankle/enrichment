@@ -1,5 +1,6 @@
 export const FETCH_ALL_CAMPUS = 'FETCH_ALL_CAMPUS';
 export const FETCH_CAMPUS = 'FETCH_CAMPUS';
+export const ADD_STUDENT = 'ADD_STUDENT';
 export const REMOVE_STUDENT = 'REMOVE_STUDENT';
 export const EDIT_CAMPUS = 'EDIT_CAMPUS';
 export const CREATE_CAMPUS = 'CREATE_CAMPUS';

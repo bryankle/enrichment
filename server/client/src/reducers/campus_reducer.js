@@ -1,6 +1,7 @@
 import {
 	FETCH_ALL_CAMPUS,
 	FETCH_CAMPUS,
+	ADD_STUDENT,
 	REMOVE_STUDENT,
 	EDIT_CAMPUS,
 	CREATE_CAMPUS,
@@ -20,6 +21,10 @@ export default (state = {}, action) => {
 				console.log(item.id, 'and', idToDelete);
 				return item.id !== idToDelete
 			})}
+		case ADD_STUDENT:
+			console.log("REDUCER - ADD_STUDENT");
+			console.log('action.payload', action.payload);
+			return state;
 		case REMOVE_STUDENT:
 			const removedStudentId = action.payload;
 			let currentStudents = [...state.singleCampus.students]

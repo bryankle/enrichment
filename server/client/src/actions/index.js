@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
 	FETCH_ALL_CAMPUS, // WORKING
 	FETCH_CAMPUS, // WORKING
-	REMOVE_STUDENT, 
+	ADD_STUDENT,
+	REMOVE_STUDENT, // WORKING
 	EDIT_CAMPUS, 
 	CREATE_CAMPUS, 
 	DELETE_CAMPUS, 
@@ -72,14 +73,16 @@ export const removeStudent = (id) => {
 }
 
 export const addStudent = (campusId, studentId) => {
+	console.log('ACTION - Add student')
 	return dispatch => {
-		axios.put(`${ROOT_URL}/api/${campusId}/add/${studentId}`)
+		axios.put(`${ROOT_URL}/api/campus/${campusId}/add/${studentId}`)
 			.then(res => {
 				console.log('ACTION - Adding student to campus');
 				console.log(res.data);
-				// dispatch({
-
-				// })
+				dispatch({
+					type: ADD_STUDENT,
+					payload: res.data
+				})
 			})
 	}
 }

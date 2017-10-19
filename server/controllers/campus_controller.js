@@ -98,6 +98,7 @@ exports.addStudent = function(req, res, next) {
 		}}
 	)
 	.then(function(student) {
+		console.log("Student was added into campus")
 		res.send(studentId); // Send payload of studentId removed
 	})
 	.catch(err => res.send('Student not found'))

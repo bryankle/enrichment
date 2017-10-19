@@ -11,8 +11,11 @@
     // Delete a student - WORKING
     // axios.delete('/api/student/9');
 
+    // Add student to specific campus 
+    // axios.put('/api/campus/2/add/9');
+
     // Remove student from campus with ID - WORKING
-    // axios.put('/api/campus/remove/1')
+    // axios.put('/api/campus/remove/1');
 
     // POST create new campus - TEST again
     // axios.post('/api/campus', { 
@@ -32,4 +35,15 @@
     //     console.log(students)
     //   })
 
-    
+
+    /*
+
+    1. Create route
+    2. Create controller corresponding to route
+    3. Test route with axios to determine if task is properly executed
+    4. Create action type
+    5. Create action/thunk creator
+    6. Create reducer for dispatch type
+    7. Replace test with axios with action
+
+    */
