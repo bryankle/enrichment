@@ -85,6 +85,22 @@ exports.removeStudent = function(req, res, next) {
 	.catch(err => res.send('Student not found'))
 }
 
+exports.addStudent = function(req, res, next) {
+	const studentId = req.params.studentId;
+	const campusId = ''; // Find out how to obtain
+	Student.update({
+		{ campusId },
+		{ where: {
+			id: studentId
+		}}
+	})
+	.then(function(student) {
+		res.send(studentId); // Send payload of studentId removed
+	})
+	.catch(err => res.send('Student not found'))
+}
+
+
 
 
 

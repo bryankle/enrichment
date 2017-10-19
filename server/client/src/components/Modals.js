@@ -1,8 +1,14 @@
 import React from 'react'
-import { Button, Header, Image, Modal } from 'semantic-ui-react'
-
+import { Button, Header, Image, Modal, Icon } from 'semantic-ui-react'
+const buttonStyle = {
+      float: 'right'
+    }
 const ModalModalExample = () => (
-  <Modal trigger={<Button>Edit</Button>}>
+  <Modal trigger={<Icon 
+                name='add circle' 
+                size='big' 
+                style={buttonStyle}
+                />}>
     <Modal.Header>Select a Photo</Modal.Header>
     <Modal.Content image>
       <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />

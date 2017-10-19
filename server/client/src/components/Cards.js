@@ -27,9 +27,11 @@ class Cards extends Component {
 		      <Image src="http://lorempixel.com/400/200" />
 	      	</Link>
 			    <Card.Content>
-			      <Card.Header>
-			        {this.props.name}
-			      </Card.Header>
+					<Link to={`/${type}/${id}`}>
+					      <Card.Header>
+					        {this.props.name}
+					      </Card.Header>
+			     	</Link>
 			      <Card.Meta>
 			        <span className='date'>
 			          Description

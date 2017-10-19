@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Cards from '../components/Cards';
+import Modals from '../components/Modals';
 import { Menu, Card, Image, Icon, Grid, Button } from 'semantic-ui-react';
 import axios from 'axios';
 
@@ -14,8 +15,6 @@ class Campus extends Component {
 
   componentDidMount() {
     this.props.fetchAllCampus();
-    
-    // this.props.removeStudent(1);
   }
 
 	render() {
@@ -23,16 +22,28 @@ class Campus extends Component {
     const campuses = this.props.campus.allCampuses;
     console.log('campuses', campuses)
     // console.log("campus:", campuses.length)
+    const buttonStyle = {
+      float: 'right'
+    }
 
 		return (
 			<div>
-        <button
-          onClick={() => {
-            // this.props.fetchCampus(1)
 
-            this.props.deleteCampus(10);
-          }}
-        >TEST REMOVE</button>
+        <Grid divided='vertically'>
+          <Grid.Row columns={2}>
+            <Grid.Column>
+              <h1>Browse Campuses</h1>
+            </Grid.Column>
+           <Grid.Column>
+              <Modals />
+            </Grid.Column>
+          </Grid.Row>
+
+          <Grid.Row columns={1}>
+           
+          </Grid.Row>
+        </Grid>
+
         <Card.Group itemsPerRow={4}>
         {this.props.campus.allCampuses ? 
         campuses.map((campus) => {

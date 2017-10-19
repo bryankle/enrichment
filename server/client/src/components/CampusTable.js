@@ -28,7 +28,9 @@ class CampusTable extends Component {
 	                <Table.HeaderCell>ID</Table.HeaderCell>
 	                <Table.HeaderCell>Name</Table.HeaderCell>
 	                <Table.HeaderCell>Email</Table.HeaderCell>
+
 	                <Table.HeaderCell><Icon fitted name='add user' size='large'/></Table.HeaderCell>
+	                
 	              </Table.Row>
 	            </Table.Header>
 
