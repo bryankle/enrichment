@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import { Icon, Table } from 'semantic-ui-react';
+import { Icon, Table, Dropdown } from 'semantic-ui-react';
 import TableRow from './TableRow';
 
 class CampusTable extends Component {
 
 	render() {
-		console.log('CAMPUSTABLE')
-		console.log(this.props.students)
-		const { students, removeStudent } = this.props;
+		console.log('CAMPUS TABLE')
+		console.log(this.props)
+
+		const { campusId, 
+				allStudents, 
+				students, 
+				addStudent, 
+				removeStudent } = this.props;
 
 		const renderTableRows = students.filter(function(student) {
 			return student.campusId !== null;
@@ -25,12 +30,28 @@ class CampusTable extends Component {
 			<Table celled>
 	            <Table.Header>
 	              <Table.Row>
+	      
 	                <Table.HeaderCell>ID</Table.HeaderCell>
 	                <Table.HeaderCell>Name</Table.HeaderCell>
 	                <Table.HeaderCell>Email</Table.HeaderCell>
 
-	                <Table.HeaderCell><Icon fitted name='add user' size='large'/></Table.HeaderCell>
-	                
+	                <Table.HeaderCell>
+	                	<Dropdown text='Add student' icon='add user' floating labeled button className='icon'>
+						    <Dropdown.Menu>
+						      <Dropdown.Header content='Select a student' />
+					            {allStudents ? 
+					            	allStudents.map((val) => {
+					            		const studentId = val.id;
+					            		return <Dropdown.Item 
+					            			text={val.name}
+					            			onClick={() => addStudent(campusId, studentId, allStudents)}
+					            			/>
+					            	}) :
+					            	''}
+						    </Dropdown.Menu>
+						  </Dropdown>
+	                </Table.HeaderCell>
+
 	              </Table.Row>
 	            </Table.Header>
 

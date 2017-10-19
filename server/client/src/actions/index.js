@@ -72,7 +72,7 @@ export const removeStudent = (id) => {
 	}
 }
 
-export const addStudent = (campusId, studentId) => {
+export const addStudent = (campusId, studentId, allStudents) => {
 	console.log('ACTION - Add student')
 	return dispatch => {
 		axios.put(`${ROOT_URL}/api/campus/${campusId}/add/${studentId}`)
@@ -81,7 +81,10 @@ export const addStudent = (campusId, studentId) => {
 				console.log(res.data);
 				dispatch({
 					type: ADD_STUDENT,
-					payload: res.data
+					payload: {
+						studentId: res.data,
+						allStudents // Insersecting actions between campus/student
+					}
 				})
 			})
 	}

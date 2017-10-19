@@ -16,6 +16,7 @@ class CampusDetail extends Component {
     // Fetch single campus here
     const id = this.props.match.params.id
     this.props.fetchCampus(id);
+    this.props.fetchAllStudents();
   }
 
 	render() {
@@ -24,8 +25,11 @@ class CampusDetail extends Component {
 
     if (this.props.campus.singleCampus) {
       console.log("Students belonging to ", this.props.campus.singleCampus.name);
-      console.log(this.props.campus.singleCampus.students)
-      const { name, students } = this.props.campus.singleCampus;
+      const { id, name, students } = this.props.campus.singleCampus;
+      const { allStudents } = this.props.student;
+      const { addStudent, removeStudent } = this.props;
+
+      console.log("Campus ID is", id)
 
       return (
 
@@ -37,8 +41,11 @@ class CampusDetail extends Component {
           <Grid.Column width={8}>
 
             <CampusTable 
+              campusId={id}
               students={students} 
-              removeStudent={this.props.removeStudent}
+              allStudents={allStudents}
+              addStudent={addStudent}
+              removeStudent={removeStudent}
               />
 
           </Grid.Column>
@@ -53,7 +60,8 @@ class CampusDetail extends Component {
 
 function mapStateToProps(state) {
   return {
-    campus: state.campus
+    campus: state.campus,
+    student: state.student
   }
 }
 

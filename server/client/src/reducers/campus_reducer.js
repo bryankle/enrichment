@@ -24,7 +24,22 @@ export default (state = {}, action) => {
 		case ADD_STUDENT:
 			console.log("REDUCER - ADD_STUDENT");
 			console.log('action.payload', action.payload);
-			return state;
+			console.log('state', state);
+			const { studentId, allStudents } = action.payload;
+			const campusId = state.singleCampus.id;
+			let addedStudent = allStudents.find(function(student) {
+				return student.id === studentId;
+			})
+			addedStudent.campusId = campusId;
+			console.log('addedStudent', addedStudent)
+	
+			return {
+				...state,
+				singleCampus: {
+					...state.singleCampus,
+					students: [...state.singleCampus.students, addedStudent]
+				}
+			};
 		case REMOVE_STUDENT:
 			const removedStudentId = action.payload;
 			let currentStudents = [...state.singleCampus.students]
