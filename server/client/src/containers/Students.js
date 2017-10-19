@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import { Menu, Card, Image, Icon, Grid, Button } from 'semantic-ui-react'
+import { Menu, Card, Image, Icon, Grid, Button, Divider } from 'semantic-ui-react'
 import Cards from '../components/Cards';
 import StudentForm from './StudentForm';
 import ModalForm from '../components/Modals';
@@ -19,9 +19,7 @@ class Student extends Component {
 
 	render() {
 
-    console.log(this.props);
-
-    const students = this.props.student.allStudents;
+    const { allStudents } = this.props.student;
 		return (
 			 <div>
 
@@ -34,31 +32,28 @@ class Student extends Component {
               <ModalForm 
                 header={'Add a student'}
                 Form={StudentForm}
-              />
-              
+              />      
             </Grid.Column>
           </Grid.Row>
-
-          <Grid.Row columns={1}>
-           
-          </Grid.Row>
+          <Divider/>
         </Grid>
 
         <Card.Group itemsPerRow={4}>
-          {this.props.student.allStudents ? 
-          students.map((student) => {
-            console.log(student);
-            return <Cards
-              type={'students'}
-              name={student.name}
-              image={'http://lorempixel.com/400/200'}
-              description={student.campus ? student.campus.name : 'Unaffiliated'}
-              id={student.id}
-              delete={this.props.deleteStudent}
-            />
+          {allStudents ? 
+          allStudents.map(student => {
+            return (
+                    <Cards
+                      type={'students'}
+                      name={student.name}
+                      image={'http://lorempixel.com/400/200'}
+                      description={student.campus ? student.campus.name : 'Unaffiliated'}
+                      id={student.id}
+                      delete={this.props.deleteStudent}
+                    />
+                  )
           })
           :
-           ''}
+          ''}
         </Card.Group> 
       </div>
 		)

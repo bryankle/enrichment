@@ -16,25 +16,11 @@ class Campus extends Component {
 
   componentDidMount() {
     this.props.fetchAllCampus();
-
-  // axios.post('/api/campus', { 
-  //     name: 'newcampus', 
-  //     picture: 'newpicture' })
-
-    // this.props.createCampus('hello world', 'hello ')
-
-
   }
 
 	render() {
-    console.log(this.props);
-    const campuses = this.props.campus.allCampuses;
-    console.log('campuses', campuses)
-    // console.log("campus:", campuses.length)
-    const buttonStyle = {
-      float: 'right'
-    }
-
+    const { allCampuses } = this.props.campus;
+ 
 		return (
 			<div>
         <Grid divided='vertically'>
@@ -47,19 +33,15 @@ class Campus extends Component {
                 header={'Add a campus'}
                 Form={CampusForm}
               />
-              
             </Grid.Column>
           </Grid.Row>
-
           <Grid.Row columns={1}>
-           
           </Grid.Row>
         </Grid>
 
         <Card.Group itemsPerRow={4}>
-        {this.props.campus.allCampuses ? 
-        campuses.map((campus) => {
-          console.log('campus id', campus.id)
+        {allCampuses ? 
+        allCampuses.map(campus => {
           return <Cards
             type={'campus'}
             name={campus.name}

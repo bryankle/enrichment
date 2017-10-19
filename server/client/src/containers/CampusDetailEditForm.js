@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import { Button, Checkbox, Form } from 'semantic-ui-react';
+import { Button, Checkbox, Form, Dropdown, Divider } from 'semantic-ui-react';
 
-class StudentForm extends Component {
+class CampusEditForm extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			inputNameValue: '',
-			inputEmailValue: ''
+			inputEmailValue: '',
+			currentDropdown: '',
+			selectedCampusId: ''
 		}
 		this.handleInputName = this.handleInputName.bind(this);
 		this.handleInputEmail = this.handleInputEmail.bind(this);
@@ -21,19 +23,6 @@ class StudentForm extends Component {
 
 	handleInputEmail(event) {
 		this.setState({ inputEmailValue: event.target.value })
-	}
-
-	handleSubmit() {
-		const studentName = this.state.inputNameValue;
-		const email = this.state.inputEmailValue;
-
-		// Action creator goes here
-		this.props.createStudent(studentName, email)
-		this.setState({
-			inputNameValue: '',
-			inputEmailValue: ''
-		})
-		this.props.closeModal();
 	}
 
 	render() {
@@ -53,12 +42,14 @@ class StudentForm extends Component {
 			      	value={this.state.inputEmailValue}
 			      	placeholder='Enter student email' />
 			    </Form.Field>
+				<Divider/>
 			    <Button 
 			    	type='submit'
-			    	>Submit</Button>
+			    	>Submit
+		    	</Button>
 		    </Form>
 		)
 	}
 }
 
-export default connect(null, actions)(StudentForm);
+export default connect(null, actions)(CampusEditForm);

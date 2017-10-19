@@ -2,126 +2,81 @@ const Campus = require('../database/models/campus');
 const Student = require('../database/models/student');
 const bodyParser = require('body-parser');
 
-// Fetch all campuses
-exports.fetchAllCampuses = function(req, res, next) {
+module.exports = {
+
+fetchAllCampuses(req, res, next) {
 	Campus.findAll()
-		.then(function(campuses) {
-			res.json(campuses);
+		.then(function(campuses) { res.json(campuses); })
+		.catch(err => { res.send(err) })
+	},
+
+	fetchCampus(req, res, next) {
+		const { id } = req.params;
+		Campus.findOne({
+			where: { id },
+			include: [ Student ]
 		})
+		.then(campus => { res.json(campus) })
+		.catch(err => { res.send(err) })
+	},
+
+	createCampus(req, res, next) {
+		const { name, picture } = req.body;
+		Campus.create({
+			name,
+			picture
+		})
+		.then(data => { res.send(data); })
+		.catch(err => { res.send(err) })
+	},
+
+	editCampus(req, res, next) {
+		const id = req.params.id;
+		const { name, picture } = req.body;
+		Campus.update(
+			req.body,
+			{ where: { id }})
+		.then(campus => { res.send(campus) })
+		.catch((err) => res.send(err))
+	},
+
+	deleteCampus(req, res, next) {
+		const { id } = req.params;
+		return Campus.destroy({ where: { id } })
+		.then(rowDeleted => {
+		  if(rowDeleted === 1){
+		     res.send(200)
+		   }
+		}, err => {
+		    res.send(err);
+		})
+		.catch(err => { res.send(err) })
+	},
+
+	removeStudent(req, res, next) {
+		const { studentId } = req.params;	
+		Student.update(
+			{ campusId: null },
+			{ where: {
+				id: studentId
+			}}
+		)
+		.then(student => {
+			res.send(studentId);
+		})
+		.catch(err => res.send('Student not found'))
+	},
+
+	addStudent(req, res, next) {
+		const { campusId, studentId } = req.params;
+		Student.update(
+			{ campusId },
+			{ where: {
+				id: studentId
+			}}
+		)
+		.then(student => { res.send(studentId); })
+		.catch(err => res.send('Student not found'))
+	}
 }
-
-exports.fetchCampus = function(req, res, next) {
-	console.log("FETCHING SINGLE CAMPUS")
-	Campus.findOne({
-		where: {
-			id: req.params.id
-		},
-		include: [ Student ]
-	})
-	.then(function(campus) {
-		res.json(campus);
-	})
-}
-
-exports.createCampus = function(req, res, next) {
-	const { name, picture } = req.body;
-	console.log("Creating campus...")
-	Campus.create({
-		name,
-		picture
-	})
-	.then(data => {
-		console.log('data', data);
-		res.send(data)
-	})
-}
-
-exports.editCampus = function(req, res, next) {
-	const id = req.params.id;
-	console.log('req.body');
-	console.log(req.body);
-	const { name, picture } = req.body;
-	console.log('name', name);
-	console.log('picture', picture);
-	// req.body must contain 'name' or 'picture'
-	Campus.update(
-		req.body, // Revisit - find way to edit picture
-		{ where: {
-			id: id
-		}})
-	.then(function(campus) {
-		console.log('Update successful')
-		res.send(campus)
-	})
-	.catch((err) => res.send(err))
-}
-
-exports.deleteCampus = function(req, res, next) {
-	const id = req.params.id;
-	console.log("ACTION DELETE")
-	return Campus.destroy({
-	    where: {
-	        id: id
-	    }
-	})
-	.then(function(rowDeleted){ // rowDeleted will return number of rows deleted
-	  if(rowDeleted === 1){
-	     console.log('Deleted successfully');
-	     res.send(200)
-	   }
-	}, function(err){
-	    console.log(err); 
-	});
-}
-
-exports.removeStudent = function(req, res, next) {
-	const studentId = req.params.studentId;
-	console.log("Removing student from the controller")
-	
-	Student.update(
-		{ campusId: null },
-		{ where: {
-			id: studentId
-		}}
-	)
-	.then(function(student) {
-		res.send(studentId); // Send payload of studentId removed
-	})
-	.catch(err => res.send('Student not found'))
-}
-
-exports.addStudent = function(req, res, next) {
-	const studentId = req.params.studentId;
-	const campusId = req.params.campusId; // Find out how to obtain
-	console.log("CONTROLLER - ADD STUDENT")
-	console.log('studentId', studentId);
-	console.log('campusId', campusId);
-	Student.update(
-		{ campusId },
-		{ where: {
-			id: studentId
-		}}
-	)
-	.then(function(student) {
-		console.log("Student was added into campus")
-		res.send(studentId); // Send payload of studentId removed
-	})
-	.catch(err => res.send('Student not found'))
-}
-
-
-
-
-
-// REVISIT - consider using editStudent function from StudentController
-// exports.addStudent = function(req, res, next) {
-// 	const studentId = req.params.studentId;
-// // 	const campusId = req.params.campusId;
-// 	student.update({
-// 		{ campusId: campusId },
-// 		{ where: {
-// 			id: studentId
-// 		}}
-// 	})
-// }
 

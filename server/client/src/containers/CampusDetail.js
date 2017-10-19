@@ -5,6 +5,8 @@ import { Menu, Card, Image, Icon, Grid, Button, Table } from 'semantic-ui-react'
 
 import Cards from '../components/Cards';
 import CampusTable from '../components/CampusTable';
+import StudentDetailEditForm from './StudentDetailEditForm';
+import ModalForm from '../components/Modals';
 
 class CampusDetail extends Component {
 
@@ -35,7 +37,7 @@ class CampusDetail extends Component {
 
         <Grid>
           <Grid.Column width={8}>
-            <h1>{name}</h1>
+            <h1>{name} <Icon style={{float: 'right'}} name='edit' /></h1>
             <Image src='http://lorempixel.com/400/200' />
           </Grid.Column>
           <Grid.Column width={8}>

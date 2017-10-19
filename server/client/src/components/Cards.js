@@ -3,8 +3,6 @@ import { Menu, Card, Image, Icon, Grid, Button, Modal } from 'semantic-ui-react'
 import Modals from './Modals';
 import { Link } from 'react-router-dom';
 
-// Refactor to functon later
-
 class Cards extends Component {
 	constructor(props) {
 		super(props);
@@ -13,13 +11,7 @@ class Cards extends Component {
 		}
 	}
 
-	handleEditButton() {
-
-	}
-
 	render() {
-		// console.log("CARDS")
-		// console.log(this.props)
 		const { id, type } = this.props;
 		return(
 			<Card>
@@ -46,8 +38,10 @@ class Cards extends Component {
 		          <Modals />
 		          <Button 
 		          	basic color='red'
-		          	onClick={() => this.props.delete ? this.props.delete(id) : console.log('no function')}
-		          	>Delete</Button>
+		          	onClick={() => this.props.delete ? this.props.delete(id) : ''}
+		          	>
+		          	Delete
+		          	</Button>
 		        </div>
 		      </Card.Content>
 		    </Card>

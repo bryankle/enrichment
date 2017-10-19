@@ -24,12 +24,8 @@ class CampusForm extends Component {
 	}
 
 	handleSubmit() {
-		console.log('name', this.state.inputNameValue);
-		console.log('link', this.state.inputImgUrlValue);
 		const campusName = this.state.inputNameValue;
 		const imgUrl = this.state.inputImgUrlValue;
-
-		// Action creator goes here
 		this.props.createCampus(campusName, imgUrl)
 		this.setState({
 			inputNameValue: '',
@@ -58,7 +54,9 @@ class CampusForm extends Component {
 			    </Form.Field>
 			    <Button 
 			    	type='submit'
-			    	>Submit</Button>
+			    >
+		    	Submit
+		    	</Button>
 		    </Form>
 		)
 	}

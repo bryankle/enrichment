@@ -1,72 +1,62 @@
 const Student = require('../database/models/student');
 const Campus = require('../database/models/campus');
 
+module.exports = {
 
-exports.fetchAllStudents = function(req, res, next) {
-	Student.findAll({
-		include: [ Campus ]
-	})
-		.then(function(student) {
-			res.json(student);
+	fetchAllStudents(req, res, next) {
+		Student.findAll({
+			include: [ Campus ]
 		})
-}
+		.then(student => { res.json(student) })
+		.catch(err => { res.send(err) })
 
-exports.fetchStudent = function(req, res, next) {
-	const id = req.params.id;
-	Student.findOne({
-		include: [ Campus ],
-		where: {
-			id: id
-		}
-	})
-	.then((student) => res.json(student))
-}
+	},
 
-exports.createStudent = function(req, res, next) {
-	const { name, email } = req.body;
-	console.log('Student name', name);
-	console.log('Student email', email);
-	Student.create({
-		name,
-		email
-	})
-	.then(student => res.send(student))
-}
+	fetchStudent(req, res, next) {
+		const id = req.params.id;
+		Student.findOne({
+			include: [ Campus ],
+			where: { id }
+		})
+		.then(student => res.json(student))
+		.catch(err => { res.send(err) })
+	},
 
-exports.deleteStudent = function(req, res, next) {
-	const id = req.params.id;
-	return Student.destroy({
-	    where: {
-	        id: id
-	    }
-	})
-	.then(function(rowDeleted){ // rowDeleted will return number of rows deleted
-	  if(rowDeleted === 1){
-	     console.log('Deleted successfully');
-	     res.send(200)
-	   }
-	}, function(err){
-	    console.log(err); 
-	});
-}
+	createStudent(req, res, next) {
+		const { name, email } = req.body;
+		Student.create({
+			name,
+			email
+		})
+		.then(student => res.send(student))
+		.catch(err => { res.send(err) })
+	},
 
-exports.editStudent = function(req, res, next) {
-	const id = req.params.id;
-	const { name, email, campusId, campusName } = req.body;
-	console.log('req.body', req.body);
+	deleteStudent(req, res, next) {
+		const id = req.params.id;
+		return Student.destroy({
+		    where: {
+		        id: id
+		    }
+		})
+		.then(rowDeleted => { // rowDeleted will return number of rows deleted
+		  if(rowDeleted === 1){
+		     res.send(200)
+		   }
+		}, err => { res.send(err) })
+		.catch(err => { res.send(err) })
+	},
 
-	console.log('CONTROLLER - EDIT STUDENT')
+	editStudent(req, res, next) {
+		const id = req.params.id;
+		const { name, email, campusId, campusName } = req.body;
+		Student.update(
+			req.body, 
+			{ where: { id }}
+		)
+		.then(data => res.send(req.body))
+		.catch(err => res.send(err))
+	}
 
-	Student.update(
-		req.body, 
-		{ where: {
-			id: id
-		}}
-	)
-	.then((data) => {
-		res.send(req.body);
-	})
-	.catch((err) => {
-		res.send('campusId remained the same')
-	})
+
 }

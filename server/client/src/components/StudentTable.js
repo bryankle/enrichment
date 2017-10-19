@@ -5,10 +5,8 @@ import TableRow from './TableRow';
 class StudentTable extends Component {
 
 	render() {
-		console.log('Student Table')
-		console.log(this.props.students)
 		const { students } = this.props;
-		const renderTableRows = students.map(function(student, idx) {
+		const renderTableRows = students.map((student, idx) => {
 			idx++;
 			return <TableRow student={student} idx={idx}/>
 		})

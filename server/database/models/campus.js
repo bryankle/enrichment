@@ -12,10 +12,4 @@ const Campus = db.define('campus', {
 	}
 });
 
-// Campus.beforeDestroy(function() {
-// 	console.log("BEFORE DESTROY")
-// 	console.log(this);
-// });
-
-
 module.exports = Campus;

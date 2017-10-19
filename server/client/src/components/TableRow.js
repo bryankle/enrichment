@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { Table, Icon } from 'semantic-ui-react';
 
-
 class TableRow extends Component {
 
 	render() {
-
 		const { id, name, email } = this.props.student;
 		const { idx, removeStudent } = this.props;
-		console.log(this.props)
 
 		return (
 			<Table.Row>

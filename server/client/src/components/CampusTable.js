@@ -5,26 +5,25 @@ import TableRow from './TableRow';
 class CampusTable extends Component {
 
 	render() {
-		console.log('CAMPUS TABLE')
-		console.log(this.props)
-
 		const { campusId, 
 				allStudents, 
 				students, 
 				addStudent, 
 				removeStudent } = this.props;
 
-		const renderTableRows = students.filter(function(student) {
-			return student.campusId !== null;
-		}).map(function(student, idx) {
-			idx++;
-			return (<TableRow 
-					student={student} 
-					idx={idx}
-					removeStudent={removeStudent}
-					/>
-				)
-		})
+		const renderTableRows = students.filter(student => {
+				return student.campusId !== null;
+			})
+			.map((student, idx) => {
+				idx++;
+				return (
+					<TableRow 
+						student={student} 
+						idx={idx}
+						removeStudent={removeStudent}
+						/>
+					)
+			})
 
 		return (
 			<Table celled>
@@ -40,13 +39,14 @@ class CampusTable extends Component {
 						    <Dropdown.Menu>
 						      <Dropdown.Header content='Select a student' />
 					            {allStudents ? 
-					            	allStudents.map((val) => {
-					            		const studentId = val.id;
+					            	allStudents.map((student) => {
+					            		const studentId = student.id;
 					            		return <Dropdown.Item 
-					            			text={val.name}
+					            			text={student.name}
 					            			onClick={() => addStudent(campusId, studentId, allStudents)}
 					            			/>
-					            	}) :
+					            	}) 
+					            	:
 					            	''}
 						    </Dropdown.Menu>
 						  </Dropdown>

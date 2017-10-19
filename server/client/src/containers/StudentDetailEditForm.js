@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Button, Checkbox, Form, Dropdown, Divider } from 'semantic-ui-react';
 
-
 class StudentForm extends Component {
+
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -39,9 +39,8 @@ class StudentForm extends Component {
 
 
 	render() {
-		console.log(this.props)
 
-		const dropdownContent = this.props.allCampuses.map((campus) => {
+		const dropdownContent = this.props.allCampuses.map(campus => {
 			return <Dropdown.Item 
 				content={campus.name} 
 				key={campus.id}
@@ -70,18 +69,15 @@ class StudentForm extends Component {
 			      	placeholder='Enter student email' />
 			    </Form.Field>
 			    <Dropdown 
-			    		style={{float: 'right'}}
-			    		text={this.state.currentDropdown || this.props.student.campus.name} 
-			    		icon='student' floating labeled button className='icon'>
-				    <Dropdown.Menu scrolling>
+		    		style={{float: 'right'}}
+		    		text={this.state.currentDropdown || this.props.student.campus.name} 
+		    		icon='student' floating labeled button className='icon'>
+			    	<Dropdown.Menu scrolling>
 			           {dropdownContent}
 				    </Dropdown.Menu>
-				  </Dropdown>
-
+			  	</Dropdown>
 				<Divider/>
-			    <Button 
-			    	type='submit'
-			    	>Submit</Button>
+			    <Button type='submit'>Submit</Button>
 		    </Form>
 		)
 	}
