@@ -23,15 +23,21 @@ class ModalForm extends Component {
 
   render() {
 
-    const { header, Form } = this.props; 
+    const { header, Form, type } = this.props; 
+    console.log("MODALS");
+    console.log(this.props);
 
+
+    const iconType = type === 'edit' ? 
+          <Icon onClick={this.openModal} style={buttonStyle} name='edit' /> :
+          <Icon onClick={this.openModal} name='add circle' size='big' style={buttonStyle}/>
     return(
       <Modal 
         open={this.state.modalOpen}
-        trigger={<Icon onClick={this.openModal} name='add circle' size='big' style={buttonStyle}/>}>
+        trigger={iconType}>
       <Modal.Header>{header}</Modal.Header>
       <Modal.Content image>
-        <Form closeModal={this.closeModal}/>
+        <Form closeModal={this.closeModal} {...this.props}/>
       </Modal.Content>
     </Modal>
     )

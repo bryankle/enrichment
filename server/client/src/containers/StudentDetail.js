@@ -5,6 +5,8 @@ import Cards from '../components/Cards';
 import { Menu, Card, Image, Icon, Grid, Button, Divider, Table } from 'semantic-ui-react';
 import axios from 'axios';
 import UserImage from '../images/user.png';
+import StudentDetailEditForm from './StudentDetailEditForm';
+import ModalForm from '../components/Modals';
 
 
 class StudentDetail extends Component {
@@ -17,6 +19,7 @@ class StudentDetail extends Component {
     // Fetch single campus here
     const id = this.props.match.params.id
     this.props.fetchStudent(id);
+    this.props.fetchAllCampus();
   }
 
 	render() {
@@ -40,30 +43,36 @@ class StudentDetail extends Component {
             <Grid.Column width={12}>
               
 
-                <Table>
-    <Table.Header>
-      <Table.Row>
-        <Table.HeaderCell colSpan='2'>{this.props.student.singleStudent.name}</Table.HeaderCell>
-        <Table.HeaderCell colSpan='1'>
-          <Icon style={iconStyle} name='edit' /> 
-        </Table.HeaderCell>
-      </Table.Row>
-    </Table.Header>
+          <Table>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell colSpan='2'>{this.props.student.singleStudent.name}</Table.HeaderCell>
+                <Table.HeaderCell colSpan='1'>
+                  <ModalForm 
+                    header={'Edit a student'}
+                    Form={StudentDetailEditForm}
+                    type={'edit'}
+                    student={this.props.student.singleStudent}
+                    allCampuses={this.props.campus.allCampuses}
+                  />
+                </Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
 
-    <Table.Body>
-      <Table.Row>
-        <Table.Cell collapsing colSpan='2'>
-          <Icon name='student' /> Campus
-        </Table.Cell>
-        <Table.Cell>{this.props.student.singleStudent.campus.name}</Table.Cell>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell collapsing colSpan='2'>
+                  <Icon name='student' /> Campus
+                </Table.Cell>
+                <Table.Cell>{this.props.student.singleStudent.campus.name}</Table.Cell>
 
-      </Table.Row>
-      <Table.Cell collapsing colSpan='2'>
-          <Icon name='mail' /> Email
-        </Table.Cell>
-        <Table.Cell>{this.props.student.singleStudent.email}</Table.Cell>
-    </Table.Body>
-  </Table>
+              </Table.Row>
+              <Table.Cell collapsing colSpan='2'>
+                  <Icon name='mail' /> Email
+                </Table.Cell>
+                <Table.Cell>{this.props.student.singleStudent.email}</Table.Cell>
+            </Table.Body>
+          </Table>
 
             </Grid.Column>
           </Grid>
@@ -74,12 +83,14 @@ class StudentDetail extends Component {
 
 	}
 }
+
 const iconStyle = {
   float: 'right'
 }
 function mapStateToProps(state) {
   return {
-    student: state.student
+    student: state.student,
+    campus: state.campus
   }
 }
 
