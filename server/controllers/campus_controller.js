@@ -6,8 +6,8 @@ module.exports = {
 
 fetchAllCampuses(req, res, next) {
 	Campus.findAll()
-		.then(function(campuses) { res.json(campuses); })
-		.catch(err => { res.send(err) })
+		.then(campuses => res.json(campuses))
+		.catch(err => res.send(err))
 	},
 
 	fetchCampus(req, res, next) {
@@ -16,8 +16,8 @@ fetchAllCampuses(req, res, next) {
 			where: { id },
 			include: [ Student ]
 		})
-		.then(campus => { res.json(campus) })
-		.catch(err => { res.send(err) })
+		.then(campus => res.json(campus))
+		.catch(err => res.send(err))
 	},
 
 	createCampus(req, res, next) {
@@ -26,18 +26,18 @@ fetchAllCampuses(req, res, next) {
 			name,
 			picture
 		})
-		.then(data => { res.send(data); })
-		.catch(err => { res.send(err) })
+		.then(data => res.send(data))
+		.catch(err => res.send(err))
 	},
 
 	editCampus(req, res, next) {
-		const id = req.params.id;
+		const { id } = req.params;
 		const { name, picture } = req.body;
 		Campus.update(
 			req.body,
 			{ where: { id }})
-		.then(campus => { res.send(campus) })
-		.catch((err) => res.send(err))
+		.then(campus => res.send(campus))
+		.catch(err => res.send(err))
 	},
 
 	deleteCampus(req, res, next) {
@@ -45,12 +45,12 @@ fetchAllCampuses(req, res, next) {
 		return Campus.destroy({ where: { id } })
 		.then(rowDeleted => {
 		  if(rowDeleted === 1){
-		     res.send(200)
+		    res.send(200)
 		   }
 		}, err => {
 		    res.send(err);
 		})
-		.catch(err => { res.send(err) })
+		.catch(err => res.send(err))
 	},
 
 	removeStudent(req, res, next) {
@@ -61,9 +61,7 @@ fetchAllCampuses(req, res, next) {
 				id: studentId
 			}}
 		)
-		.then(student => {
-			res.send(studentId);
-		})
+		.then(student => res.send(studentId))
 		.catch(err => res.send('Student not found'))
 	},
 
@@ -75,7 +73,7 @@ fetchAllCampuses(req, res, next) {
 				id: studentId
 			}}
 		)
-		.then(student => { res.send(studentId); })
+		.then(student => res.send(studentId))
 		.catch(err => res.send('Student not found'))
 	}
 }
