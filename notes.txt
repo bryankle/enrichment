@@ -3,8 +3,8 @@ Navigation: as a user I...
 + will land on Home by default
 + can navigate to Campuses from Home
 + can navigate to Students from Home
-- can navigate to view a Single Campus from Campuses
-- can navigate to view a Single Student from Students
++ can navigate to view a Single Campus from Campuses
++ can navigate to view a Single Student from Students
 - can navigate to view a Single Student from Single Campus (for any student at that campus)
 - can navigate to view that student's Single Campus from Single Student
 
@@ -37,7 +37,7 @@ Todo
 + Add EDIT option in cards for students
 + Add EDIT modal for campus
 + Add EDIT modal for students
-- Create all action creators corresponding with routes
++ Create all action creators corresponding with routes
 + Add DELETE functionality for delete button on card for campus
 + Add DELETE functionality for delete button on card for student
 + Add description modal for for campus
@@ -48,5 +48,5 @@ Todo
 + Add student form to add new student to database
 + Create ADD form for campus
 + Create ADD form for students
-- Create EDIT form for campus
-- Create EDIT form for students
++ Create EDIT form for campus
++ Create EDIT form for students

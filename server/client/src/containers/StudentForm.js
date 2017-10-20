@@ -26,8 +26,6 @@ class StudentForm extends Component {
 	handleSubmit() {
 		const studentName = this.state.inputNameValue;
 		const email = this.state.inputEmailValue;
-
-		// Action creator goes here
 		this.props.createStudent(studentName, email)
 		this.setState({
 			inputNameValue: '',

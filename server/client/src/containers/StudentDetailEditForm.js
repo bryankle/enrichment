@@ -10,8 +10,8 @@ class StudentForm extends Component {
 		this.state = {
 			inputNameValue: this.props.student.name,
 			inputEmailValue: this.props.student.email,
-			currentDropdown: '',
-			selectedCampusId: this.props.student.campusId
+			selectedCampusId: this.props.student.campusId,
+			currentDropdown: this.props.student.campus ? this.props.student.campus.name : 'Unaffiliated'
 		}
 		this.handleInputName = this.handleInputName.bind(this);
 		this.handleInputEmail = this.handleInputEmail.bind(this);
@@ -44,9 +44,10 @@ class StudentForm extends Component {
 			return <Dropdown.Item 
 				content={campus.name} 
 				key={campus.id}
-				onClick={() => {this.setState({ 
-					currentDropdown: campus.name,
-					selectedCampusId: campus.id
+				onClick={() => {
+					this.setState({ 
+						currentDropdown: campus.name,
+						selectedCampusId: campus.id
 		 			})}}
 				/>
 		})
@@ -70,7 +71,7 @@ class StudentForm extends Component {
 			    </Form.Field>
 			    <Dropdown 
 		    		style={{float: 'right'}}
-		    		text={this.state.currentDropdown || this.props.student.campus.name} 
+		    		text={this.state.currentDropdown} 
 		    		icon='student' floating labeled button className='icon'>
 			    	<Dropdown.Menu scrolling>
 			           {dropdownContent}

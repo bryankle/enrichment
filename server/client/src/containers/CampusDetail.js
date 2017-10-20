@@ -15,23 +15,16 @@ class CampusDetail extends Component {
   }
 
   componentDidMount() {
-    // Fetch single campus here
     const id = this.props.match.params.id
     this.props.fetchCampus(id);
     this.props.fetchAllStudents();
   }
 
 	render() {
-    console.log("CAMPUS DETAIL")
-    console.log(this.props)
-
     if (this.props.campus.singleCampus) {
-      console.log("Students belonging to ", this.props.campus.singleCampus.name);
       const { id, name, students } = this.props.campus.singleCampus;
       const { allStudents } = this.props.student;
       const { addStudent, removeStudent } = this.props;
-
-      console.log("Campus ID is", id)
 
       return (
 
