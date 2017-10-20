@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import { Menu, Card, Image, Icon, Grid, Button, Divider } from 'semantic-ui-react'
+import { Card, Grid, Divider } from 'semantic-ui-react'
 import Cards from '../components/Cards';
 import StudentForm from './StudentForm';
 import ModalForm from '../components/Modals';
 
 
 class Student extends Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     this.props.fetchAllStudents();

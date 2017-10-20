@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon, Table, Dropdown } from 'semantic-ui-react';
+import { Table, Dropdown } from 'semantic-ui-react';
 import TableRow from './TableRow';
 
 class CampusTable extends Component {

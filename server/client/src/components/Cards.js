@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Card, Image, Icon, Grid, Button, Modal } from 'semantic-ui-react'
+import { Card, Image, Button } from 'semantic-ui-react'
 import Modals from './Modals';
 import { Link } from 'react-router-dom';
 

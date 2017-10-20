@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import Cards from '../components/Cards';
-import { Menu, Card, Image, Icon, Grid, Button, Divider, Table } from 'semantic-ui-react';
-import axios from 'axios';
+import { Image, Icon, Grid, Divider, Table } from 'semantic-ui-react';
 import UserImage from '../images/user.png';
 import StudentDetailEditForm from './StudentDetailEditForm';
 import ModalForm from '../components/Modals';
 
 
 class StudentDetail extends Component {
-
-  constructor(props) {
-    super(props)
-  }
 
   componentDidMount() {
     const id = this.props.match.params.id
@@ -22,8 +16,6 @@ class StudentDetail extends Component {
   }
 
 	render() {
-    console.log("STUDENT DETAIL")
-    console.log(this.props)
     if (this.props.student.singleStudent) {
 
       const { name, campus, email } = this.props.student.singleStudent;
@@ -44,7 +36,7 @@ class StudentDetail extends Component {
                 <Table>
                   <Table.Header>
                     <Table.Row>
-                      <Table.HeaderCell colSpan='2'>{this.props.student.singleStudent.name}</Table.HeaderCell>
+                      <Table.HeaderCell colSpan='2'>{name}</Table.HeaderCell>
                       <Table.HeaderCell colSpan='1'>
                         <ModalForm 
                           header={'Edit a student'}
@@ -62,7 +54,7 @@ class StudentDetail extends Component {
                       <Table.Cell>{campus ? campus.name : 'Unaffiliated' }</Table.Cell>
                     </Table.Row>
                     <Table.Cell collapsing colSpan='2'><Icon name='mail' /> Email </Table.Cell>
-                    <Table.Cell>{this.props.student.singleStudent.email}</Table.Cell>
+                    <Table.Cell>{email}</Table.Cell>
                   </Table.Body>
                 </Table>
               </Grid.Column>

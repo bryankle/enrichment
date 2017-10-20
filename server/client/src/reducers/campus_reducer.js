@@ -3,7 +3,6 @@ import {
 	FETCH_CAMPUS,
 	ADD_STUDENT,
 	REMOVE_STUDENT,
-	EDIT_CAMPUS,
 	CREATE_CAMPUS,
 	DELETE_CAMPUS
 } from '../actions/types';

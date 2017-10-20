@@ -9,19 +9,16 @@ module.exports = {
 		})
 		.then(student => res.json(student))
 		.catch(err => res.send(err))
-
 	},
-
 	fetchStudent(req, res, next) {
-		const id = req.params.id;
+		const { id } = req.params;
 		Student.findOne({
 			include: [ Campus ],
 			where: { id }
 		})
 		.then(student => res.json(student))
-		.catch(err => res.send(err )
+		.catch(err => res.send(err))
 	},
-
 	createStudent(req, res, next) {
 		const { name, email } = req.body;
 		Student.create({
@@ -31,24 +28,22 @@ module.exports = {
 		.then(student => res.send(student))
 		.catch(err => res.send(err))
 	},
-
 	deleteStudent(req, res, next) {
-		const id = req.params.id;
+		const { id } = req.params;
 		return Student.destroy({
 		    where: {
 		        id: id
 		    }
 		})
-		.then(rowDeleted => { // rowDeleted will return number of rows deleted
+		.then(rowDeleted => {
 		  if(rowDeleted === 1){
 		     res.send(200)
 		   }
 		}, err => res.send(err))
 		.catch(err => res.send(err))
 	},
-
 	editStudent(req, res, next) {
-		const id = req.params.id;
+		const { id } = req.params;
 		const { name, email, campusId, campusName } = req.body;
 		Student.update(
 			req.body, 
@@ -57,6 +52,4 @@ module.exports = {
 		.then(data => res.send(req.body))
 		.catch(err => res.send(err))
 	}
-
-
 }

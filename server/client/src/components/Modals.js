@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Header, Image, Modal, Icon } from 'semantic-ui-react';
-import CampusForm from '../containers/CampusForm';
+import { Modal, Icon } from 'semantic-ui-react';
 
 class ModalForm extends Component {
 

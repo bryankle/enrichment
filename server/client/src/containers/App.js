@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Container, Grid } from 'semantic-ui-react';
-import axios from 'axios';
-
-import Background from '../images/bg.jpg';
+import { Container } from 'semantic-ui-react';
 import Navbar from './Navbar';
 import Home from './Home';
 import Students from './Students';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import { Button, Checkbox, Form, Dropdown, Divider } from 'semantic-ui-react';
+import { Button, Form, Dropdown, Divider } from 'semantic-ui-react';
 
 class StudentForm extends Component {
 
@@ -32,7 +32,6 @@ class StudentForm extends Component {
 		const studentId = this.props.student.id;
 		const campusId = this.state.selectedCampusId;
 		const campusName = this.state.currentDropdown || this.props.student.campus.name;
-		const currentCampusId = this.props.student.campusId;
 		this.props.editStudent(studentId, studentName, email, campusId, campusName)
 		this.props.closeModal();
 	}
@@ -50,8 +49,8 @@ class StudentForm extends Component {
 						currentDropdown: campus.name,
 						selectedCampusId: campus.id
 		 			})}}
-				/>
-		))
+				/>)
+			)
 
 		return(
 			<Form onSubmit={

@@ -4,7 +4,6 @@ import {
 	FETCH_CAMPUS,
 	ADD_STUDENT,
 	REMOVE_STUDENT,
-	EDIT_CAMPUS, 
 	CREATE_CAMPUS, 
 	DELETE_CAMPUS, 
 	FETCH_ALL_STUDENTS,
@@ -43,7 +42,7 @@ export const fetchCampus = id => {
 
 export const createCampus = (name, picture) => {
 	return dispatch => {
-		axios.post(`${ROOT_URL}/api/campus`,{ name, picture })
+		axios.post(`${ROOT_URL}/api/campus`, { name, picture })
 			.then(res => {
 				dispatch({
 					type: CREATE_CAMPUS,

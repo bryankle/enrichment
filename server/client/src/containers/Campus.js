@@ -4,15 +4,9 @@ import * as actions from '../actions';
 import Cards from '../components/Cards';
 import ModalForm from '../components/Modals';
 import CampusForm from './CampusForm';
-import { Menu, Card, Image, Icon, Grid, Button } from 'semantic-ui-react';
-import axios from 'axios';
-
+import { Card, Grid } from 'semantic-ui-react';
 
 class Campus extends Component {
-
-  constructor() {
-    super()
-  }
 
   componentDidMount() {
     this.props.fetchAllCampus();

@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import { Menu, Card, Image, Icon, Grid, Button, Table } from 'semantic-ui-react';
-
-import Cards from '../components/Cards';
+import { Image, Icon, Grid } from 'semantic-ui-react';
 import CampusTable from '../components/CampusTable';
-import StudentDetailEditForm from './StudentDetailEditForm';
-import ModalForm from '../components/Modals';
 
 class CampusDetail extends Component {
-
-  constructor(props) {
-    super(props)
-  }
-
+  
   componentDidMount() {
     const { id } = this.props.match.params
     this.props.fetchCampus(id);
