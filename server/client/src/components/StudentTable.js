@@ -6,10 +6,7 @@ class StudentTable extends Component {
 
 	render() {
 		const { students } = this.props;
-		const renderTableRows = students.map((student, idx) => {
-			idx++;
-			return <TableRow student={student} idx={idx}/>
-		})
+		const renderTableRows = students.map(student => <TableRow student={student}/>)
 
 		return (
 			<Table celled>
@@ -21,7 +18,6 @@ class StudentTable extends Component {
 	                <Table.HeaderCell><Icon fitted name='add user' size='large'/></Table.HeaderCell>
 	              </Table.Row>
 	            </Table.Header>
-
 	            <Table.Body>
 	              {renderTableRows}
 	            </Table.Body>
