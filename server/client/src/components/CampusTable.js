@@ -38,14 +38,17 @@ class CampusTable extends Component {
 	                	<Dropdown text='Add student' icon='add user' floating labeled button className='icon'>
 						    <Dropdown.Menu>
 						      <Dropdown.Header content='Select a student' />
-					            {allStudents ? 
-					            	allStudents.map((student) => {
-					            		const studentId = student.id;
-					            		return <Dropdown.Item 
+					            {allStudents 
+					            	? 
+					            	allStudents
+					            	.filter(student => student.campusId !== campusId )
+					            	.map(student => (
+					            		<Dropdown.Item 
 					            			text={student.name}
-					            			onClick={() => addStudent(campusId, studentId, allStudents)}
+					            			onClick={() => addStudent(campusId, student.id, allStudents)}
 					            			/>
-					            	}) 
+				            			)
+					            	) 
 					            	:
 					            	''}
 						    </Dropdown.Menu>
