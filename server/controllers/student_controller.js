@@ -7,8 +7,8 @@ module.exports = {
 		Student.findAll({
 			include: [ Campus ]
 		})
-		.then(student => { res.json(student) })
-		.catch(err => { res.send(err) })
+		.then(student => res.json(student))
+		.catch(err => res.send(err))
 
 	},
 
@@ -19,7 +19,7 @@ module.exports = {
 			where: { id }
 		})
 		.then(student => res.json(student))
-		.catch(err => { res.send(err) })
+		.catch(err => res.send(err )
 	},
 
 	createStudent(req, res, next) {
@@ -29,7 +29,7 @@ module.exports = {
 			email
 		})
 		.then(student => res.send(student))
-		.catch(err => { res.send(err) })
+		.catch(err => res.send(err))
 	},
 
 	deleteStudent(req, res, next) {
@@ -43,8 +43,8 @@ module.exports = {
 		  if(rowDeleted === 1){
 		     res.send(200)
 		   }
-		}, err => { res.send(err) })
-		.catch(err => { res.send(err) })
+		}, err => res.send(err))
+		.catch(err => res.send(err))
 	},
 
 	editStudent(req, res, next) {
