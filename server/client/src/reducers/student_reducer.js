@@ -19,9 +19,7 @@ export default (state = {}, action) => {
 		case DELETE_STUDENT:
 			const idToDelete = action.payload;
 			return {...state, 
-					allStudents: state.allStudents.filter(item => {
-						return item.id !== idToDelete
-					})}
+					allStudents: state.allStudents.filter(item => item.id !== idToDelete)}
 		case EDIT_STUDENT:
 			return {...state,
 				singleStudent: {
