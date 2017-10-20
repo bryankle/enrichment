@@ -12,7 +12,7 @@ class Cards extends Component {
 	}
 
 	render() {
-		const { id, type } = this.props;
+		const { id, type, deleteCard } = this.props;
 		return(
 			<Card>
 			<Link to={`/${type}/${id}`}>
@@ -20,13 +20,13 @@ class Cards extends Component {
 	      	</Link>
 			    <Card.Content>
 					<Link to={`/${type}/${id}`}>
-					      <Card.Header>
-					        {this.props.name}
-					      </Card.Header>
+				      <Card.Header>
+				        {this.props.name}
+				      </Card.Header>
 			     	</Link>
 			      <Card.Meta>
 			        <span className='date'>
-			          Description
+		          		Description
 			        </span>
 			      </Card.Meta>
 			      <Card.Description>
@@ -38,7 +38,7 @@ class Cards extends Component {
 		          <Modals />
 		          <Button 
 		          	basic color='red'
-		          	onClick={() => this.props.delete ? this.props.delete(id) : ''}
+		          	onClick={() => deleteCard ? deleteCard(id) : ''}
 		          	>
 		          	Delete
 		          	</Button>

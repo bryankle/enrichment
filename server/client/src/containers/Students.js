@@ -22,7 +22,6 @@ class Student extends Component {
     const { allStudents } = this.props.student;
 		return (
 			 <div>
-
         <Grid divided='vertically'>
           <Grid.Row columns={2}>
             <Grid.Column>
@@ -48,7 +47,7 @@ class Student extends Component {
                       image={'http://lorempixel.com/400/200'}
                       description={student.campus ? student.campus.name : 'Unaffiliated'}
                       id={student.id}
-                      delete={this.props.deleteStudent}
+                      deleteCard={this.props.deleteStudent}
                     />
                   )
           })
