@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import * as actions from '../actions';
 import { Image, Icon, Grid, Divider, Table } from 'semantic-ui-react';
 import UserImage from '../images/user.png';
+import ModalForm from '../components/Modals';
+import StudentDetailEditForm from './StudentDetailEditForm';
 
 
 class StudentDetail extends Component {
@@ -37,6 +39,13 @@ class StudentDetail extends Component {
                     <Table.Row>
                       <Table.HeaderCell colSpan='2'>{name}</Table.HeaderCell>
                       <Table.HeaderCell colSpan='1'>
+                      <ModalForm 
+                          header={'Edit a student'}
+                          Form={StudentDetailEditForm}
+                          type={'edit'}
+                          student={this.props.student.singleStudent}
+                          allCampuses={this.props.campus.allCampuses}
+                        />
                       </Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>

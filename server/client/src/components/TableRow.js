@@ -7,7 +7,7 @@ class TableRow extends Component {
 	render() {
 		const { id, name, email } = this.props.student;
 		const { idx, removeStudent } = this.props;
-
+        console.log('TableRow', id)
 		return (
 			<Table.Row>
                 <Table.Cell>{idx}</Table.Cell>

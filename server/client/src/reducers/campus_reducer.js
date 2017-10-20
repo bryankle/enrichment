@@ -37,8 +37,12 @@ export default (state = {}, action) => {
 			}
 		case REMOVE_STUDENT:
 			const removedStudentId = action.payload;
-			let currentStudents = [...state.singleCampus.students]
-			var removedStudent = currentStudents.find(student => student.id === removedStudentId );
+			console.log('removedStudentId', removedStudentId);
+			let currentStudents = [...state.singleCampus.students];
+			console.log('currentStudents', currentStudents)
+			var removedStudent = currentStudents.find(student => {
+				return student.id === removedStudentId;
+			});
 			removedStudent.campusId = null;
 			return {
 				...state,

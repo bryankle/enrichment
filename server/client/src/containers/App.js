@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
-import Navbar from './Navbar';
-import Home from './Home';
+import Navbar from '../components/Navbar';
+import Home from '../components/Home';
 import Students from './Students';
 import Campus from './Campus';
 import CampusDetail from './CampusDetail';

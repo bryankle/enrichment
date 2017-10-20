@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Card, Grid, Divider } from 'semantic-ui-react'
 import Cards from '../components/Cards';
-import StudentForm from './StudentForm';
 import ModalForm from '../components/Modals';
+import StudentForm from './StudentForm';
 
 
 class Student extends Component {

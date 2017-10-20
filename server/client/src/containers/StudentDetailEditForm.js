@@ -44,6 +44,7 @@ class StudentForm extends Component {
 				<Dropdown.Item 
 				content={campus.name} 
 				key={campus.id}
+				{...this.props}
 				onClick={() => {
 					this.setState({ 
 						currentDropdown: campus.name,
