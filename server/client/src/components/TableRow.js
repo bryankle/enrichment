@@ -16,9 +16,7 @@ class TableRow extends Component {
                 	<Icon 
                 		fitted name='delete' 
                 		size='large'
-                		onClick={() => {
-                			removeStudent(id);
-                		}}
+                		onClick={() => removeStudent(id) }
             		/>
             	</Table.Cell>
               </Table.Row>

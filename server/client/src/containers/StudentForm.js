@@ -16,17 +16,17 @@ class StudentForm extends Component {
 	}
 
 	handleInputName(event) {
-		this.setState({ inputNameValue: event.target.value })
+		this.setState({ inputNameValue: event.target.value });
 	}
 
 	handleInputEmail(event) {
-		this.setState({ inputEmailValue: event.target.value })
+		this.setState({ inputEmailValue: event.target.value });
 	}
 
 	handleSubmit() {
 		const studentName = this.state.inputNameValue;
 		const email = this.state.inputEmailValue;
-		this.props.createStudent(studentName, email)
+		this.props.createStudent(studentName, email);
 		this.setState({
 			inputNameValue: '',
 			inputEmailValue: ''
@@ -51,9 +51,7 @@ class StudentForm extends Component {
 			      	value={this.state.inputEmailValue}
 			      	placeholder='Enter student email' />
 			    </Form.Field>
-			    <Button 
-			    	type='submit'
-			    	>Submit</Button>
+			    <Button type='submit'>Submit</Button>
 		    </Form>
 		)
 	}

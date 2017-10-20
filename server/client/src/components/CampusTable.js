@@ -13,7 +13,8 @@ class CampusTable extends Component {
 
 		const renderTableRows = students
 			.filter(student => student.campusId !== null)
-			.map(student => <TableRow 
+			.map((student, idx) => <TableRow 
+					idx={++idx}
 					student={student} 
 					removeStudent={removeStudent}
 					/>)

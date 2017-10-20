@@ -21,19 +21,14 @@ export default (state = {}, action) => {
 				};
 		case DELETE_CAMPUS:
 			const idToDelete = action.payload;
-			return {...state, allCampuses: state.allCampuses.filter((item) => {
-				return item.id !== idToDelete
-			})};
+			return {...state, 
+					allCampuses: state.allCampuses.filter(item => item.id !== idToDelete)};
 		case ADD_STUDENT:
 			const { studentId, allStudents } = action.payload;
 			const campusId = state.singleCampus.id;
-			let addedStudent = allStudents.find(student => {
-				return student.id === studentId;
-			});
+			let addedStudent = allStudents.find(student => student.id === studentId);
 			addedStudent.campusId = campusId;
-			let filteredStudents = allStudents.filter(student => {
-				return student.campusId === campusId;
-			});
+			let filteredStudents = allStudents.filter(student => student.campusId === campusId);
 			return {
 				...state,
 				singleCampus: {
@@ -44,9 +39,7 @@ export default (state = {}, action) => {
 		case REMOVE_STUDENT:
 			const removedStudentId = action.payload;
 			let currentStudents = [...state.singleCampus.students]
-			var removedStudent = currentStudents.find(student => {
-				return student.id === removedStudentId;
-			});
+			var removedStudent = currentStudents.find(student => student.id === removedStudentId );
 			removedStudent.campusId = null;
 			return {
 				...state,

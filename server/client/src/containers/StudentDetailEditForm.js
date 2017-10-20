@@ -37,11 +37,12 @@ class StudentForm extends Component {
 		this.props.closeModal();
 	}
 
-
 	render() {
 
-		const dropdownContent = this.props.allCampuses.map(campus => {
-			return <Dropdown.Item 
+		const { allCampuses } = this.props;
+
+		const dropdownContent = allCampuses.map(campus => (
+				<Dropdown.Item 
 				content={campus.name} 
 				key={campus.id}
 				onClick={() => {
@@ -50,7 +51,7 @@ class StudentForm extends Component {
 						selectedCampusId: campus.id
 		 			})}}
 				/>
-		})
+		))
 
 		return(
 			<Form onSubmit={

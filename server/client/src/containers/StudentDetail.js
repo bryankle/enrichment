@@ -16,7 +16,6 @@ class StudentDetail extends Component {
   }
 
   componentDidMount() {
-    // Fetch single campus here
     const id = this.props.match.params.id
     this.props.fetchStudent(id);
     this.props.fetchAllCampus();
@@ -28,7 +27,7 @@ class StudentDetail extends Component {
     if (this.props.student.singleStudent) {
 
       const { name, campus, email } = this.props.student.singleStudent;
-      
+
       return(
         <div>
           <Grid.Row columns={2}>
@@ -75,9 +74,6 @@ class StudentDetail extends Component {
 	}
 }
 
-const iconStyle = {
-  float: 'right'
-}
 function mapStateToProps(state) {
   return {
     student: state.student,

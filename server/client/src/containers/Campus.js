@@ -41,18 +41,16 @@ class Campus extends Component {
 
         <Card.Group itemsPerRow={4}>
         {allCampuses ? 
-        allCampuses.map(campus => {
-          return <Cards
-            type={'campus'}
-            name={campus.name}
-            image={'http://lorempixel.com/400/200'}
-            description={'Description goes here'}
-            id={campus.id}
-            deleteCard={this.props.deleteCampus}
-          />
-        })
-        :
-         ''}
+        allCampuses.map(campus => (
+                  <Cards
+                  type={'campus'}
+                  name={campus.name}
+                  image={'http://lorempixel.com/400/200'}
+                  description={'Description goes here'}
+                  id={campus.id}
+                  deleteCard={this.props.deleteCampus}
+                />)) :
+                    ''}
         </Card.Group> 
 			</div>
 		)

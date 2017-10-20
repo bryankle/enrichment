@@ -15,7 +15,7 @@ class CampusDetail extends Component {
   }
 
   componentDidMount() {
-    const id = this.props.match.params.id
+    const { id } = this.props.match.params
     this.props.fetchCampus(id);
     this.props.fetchAllStudents();
   }
@@ -27,7 +27,6 @@ class CampusDetail extends Component {
       const { addStudent, removeStudent } = this.props;
 
       return (
-
         <Grid>
           <Grid.Column width={8}>
             <h1>{name} <Icon style={{float: 'right'}} name='edit' /></h1>
@@ -46,10 +45,9 @@ class CampusDetail extends Component {
           </Grid.Column>
         </Grid>
       )
-
     }
 
-    return <div></div>
+    return <div>Loading...</div>
 	}
 }
 

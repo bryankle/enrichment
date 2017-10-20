@@ -6,7 +6,9 @@ class StudentTable extends Component {
 
 	render() {
 		const { students } = this.props;
-		const renderTableRows = students.map(student => <TableRow student={student}/>)
+		const renderTableRows = students.map((student, idx) => {
+			return <TableRow student={student} idx={++idx}/>
+		})
 
 		return (
 			<Table celled>
