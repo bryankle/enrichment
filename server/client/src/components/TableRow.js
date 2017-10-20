@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Table, Icon } from 'semantic-ui-react';
 
 class TableRow extends Component {
@@ -10,7 +11,11 @@ class TableRow extends Component {
 		return (
 			<Table.Row>
                 <Table.Cell>{idx}</Table.Cell>
-                <Table.Cell>{name}</Table.Cell>
+                <Table.Cell>
+                    <Link to={`/students/${id}`}>
+                        {name}
+                    </Link>
+                </Table.Cell>
                	<Table.Cell>{email}</Table.Cell>
                 <Table.Cell>
                 	<Icon 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import { Image, Icon, Grid } from 'semantic-ui-react';
+import { Image, Grid } from 'semantic-ui-react';
 import CampusTable from '../components/CampusTable';
 
 class CampusDetail extends Component {

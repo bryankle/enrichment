@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import * as actions from '../actions';
 import { Image, Icon, Grid, Divider, Table } from 'semantic-ui-react';
 import UserImage from '../images/user.png';
-import StudentDetailEditForm from './StudentDetailEditForm';
-import ModalForm from '../components/Modals';
 
 
 class StudentDetail extends Component {
@@ -38,20 +37,18 @@ class StudentDetail extends Component {
                     <Table.Row>
                       <Table.HeaderCell colSpan='2'>{name}</Table.HeaderCell>
                       <Table.HeaderCell colSpan='1'>
-                        <ModalForm 
-                          header={'Edit a student'}
-                          Form={StudentDetailEditForm}
-                          type={'edit'}
-                          student={this.props.student.singleStudent}
-                          allCampuses={this.props.campus.allCampuses}
-                        />
                       </Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
                   <Table.Body>
                     <Table.Row>
                       <Table.Cell collapsing colSpan='2'><Icon name='student' /> Campus </Table.Cell>
-                      <Table.Cell>{campus ? campus.name : 'Unaffiliated' }</Table.Cell>
+                      { campus 
+                        ? <Link to={`/campus/${campus.id}`}>
+                            <Table.Cell>{campus.name}</Table.Cell>
+                          </Link>
+                        : <Table.Cell>Unaffiliated</Table.Cell>
+                      }
                     </Table.Row>
                     <Table.Cell collapsing colSpan='2'><Icon name='mail' /> Email </Table.Cell>
                     <Table.Cell>{email}</Table.Cell>
