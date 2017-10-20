@@ -11,19 +11,12 @@ class CampusTable extends Component {
 				addStudent, 
 				removeStudent } = this.props;
 
-		const renderTableRows = students.filter(student => {
-				return student.campusId !== null;
-			})
-			.map((student, idx) => {
-				idx++;
-				return (
-					<TableRow 
-						student={student} 
-						idx={idx}
-						removeStudent={removeStudent}
-						/>
-					)
-			})
+		const renderTableRows = students
+			.filter(student => student.campusId !== null)
+			.map(student => <TableRow 
+					student={student} 
+					removeStudent={removeStudent}
+					/>)
 
 		return (
 			<Table celled>
@@ -46,18 +39,15 @@ class CampusTable extends Component {
 					            		<Dropdown.Item 
 					            			text={student.name}
 					            			onClick={() => addStudent(campusId, student.id, allStudents)}
-					            			/>
-				            			)
-					            	) 
+					            			/>)
+					            		) 
 					            	:
 					            	''}
 						    </Dropdown.Menu>
 						  </Dropdown>
 	                </Table.HeaderCell>
-
 	              </Table.Row>
 	            </Table.Header>
-
 	            <Table.Body>
 	              {renderTableRows}
 	            </Table.Body>
