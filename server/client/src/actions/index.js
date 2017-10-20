@@ -92,7 +92,6 @@ export const addStudent = (campusId, studentId, allStudents) => {
 }
 
 // Student Actions
-
 export const fetchAllStudents = () => {
 	return dispatch => {
 		axios.get(`${ROOT_URL}/api/student`)

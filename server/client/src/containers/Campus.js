@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Cards from '../components/Cards';
-import ModalForm from '../components/Modals';
-import CampusForm from './CampusForm';
 import { Card, Grid } from 'semantic-ui-react';
 
 class Campus extends Component {
@@ -23,10 +21,6 @@ class Campus extends Component {
               <h1>Browse Campuses</h1>
             </Grid.Column>
            <Grid.Column>
-              <ModalForm 
-                header={'Add a campus'}
-                Form={CampusForm}
-              />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row columns={1}>

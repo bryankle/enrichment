@@ -35,8 +35,7 @@ class Student extends Component {
 
         <Card.Group itemsPerRow={4}>
           {allStudents ? 
-          allStudents.map(student => {
-            return (
+          allStudents.map(student => (
                     <Cards
                       type={'students'}
                       name={student.name}
@@ -44,11 +43,8 @@ class Student extends Component {
                       description={student.campus ? student.campus.name : 'Unaffiliated'}
                       id={student.id}
                       deleteCard={this.props.deleteStudent}
-                    />
-                  )
-          })
-          :
-          ''}
+                    />)
+                  ) : ''}
         </Card.Group> 
       </div>
 		)
